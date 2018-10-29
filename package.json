@@ -1,0 +1,70 @@
+{
+  "name": "diamond-player",
+  "description": "A customisable HTML5 video player component for React",
+  "version": "0.0.0",
+  "author": "Gurdev S. Panue",
+  "license": "MIT",
+  "homepage": "https://github.com/GSPanue/diamond-player#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSPanue/diamond-player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GSPanue/diamond-player/issues"
+  },
+  "keywords": [
+    "diamond",
+    "player",
+    "diamond-player",
+    "video",
+    "hls",
+    "live",
+    "streaming",
+    "html5",
+    "react"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./config/webpack.dev.config.js",
+    "build": "webpack -p --config ./config/webpack.prod.config.js",
+    "report": "webpack-bundle-analyzer --port 4200 ./demo/js/stats.json",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/src/config/tests"
+    ],
+    "setupTestFrameworkScriptFile": "jest-extended",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "jest-extended": "^0.11.0",
+    "prop-types": "^15.6.2",
+    "styled-components": "^4.0.2",
+    "webpack": "^3.12.0",
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-dev-server": "^2.11.3"
+  }
+}

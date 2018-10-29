@@ -1,0 +1,9 @@
+# IntelliJ Project Files
+.idea
+*.iml
+out
+gen
+
+# Diamond Player
+/node_modules
+/demo/js/stats.json
