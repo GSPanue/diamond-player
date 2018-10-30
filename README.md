@@ -1,7 +1,11 @@
 <h1 align="center">Diamond Player</h1>
 
 <div align="center">
-  A customisable HTML5 video player component for React
+  
+  A customisable HTML5 video player component for [React](https://reactjs.org)
+  
+  [![Build Status](https://travis-ci.com/GSPanue/diamond-player.svg?branch=master)](https://travis-ci.com/GSPanue/diamond-player)
+  
 </div>
 
 ## Development
