@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import DiamondPlayer from './DiamondPlayer';
+
 ReactDOM.render(
-  <div>Entry</div>,
+  <DiamondPlayer />,
   document.getElementById('app')
 );
