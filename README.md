@@ -4,6 +4,7 @@
   
   A customisable HTML5 video player component for [React](https://reactjs.org)
   
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Build Status](https://travis-ci.com/GSPanue/diamond-player.svg?branch=master)](https://travis-ci.com/GSPanue/diamond-player)
   
 </div>
