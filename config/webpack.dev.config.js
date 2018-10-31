@@ -23,6 +23,12 @@ module.exports = {
         'babel-loader',
         'eslint-loader'
       ]
+    }, {
+      test: /\.(mp4)$/,
+      loader: 'file-loader',
+      options: {
+        name: '[name].[ext]'
+      }
     }]
   },
   plugins: [
