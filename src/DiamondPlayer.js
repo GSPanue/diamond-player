@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Wrapper } from './styles';
 import Video from './components/Video';
-import ControlBar from './components/ControlBar';
 
 const DiamondPlayer = ({ style, ...rest }) => (
   <Wrapper style={style}>
     <Video {...rest} source="" />
-    <ControlBar />
   </Wrapper>
 );
 
