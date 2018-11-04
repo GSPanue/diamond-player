@@ -6,7 +6,7 @@ import Video from './components/Video';
 
 const DiamondPlayer = ({ style, ...rest }) => (
   <Wrapper style={style}>
-    <Video {...rest} source="" />
+    <Video {...rest} />
   </Wrapper>
 );
 

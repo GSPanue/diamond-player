@@ -31,9 +31,7 @@ describe('Component: DiamondPlayer', () => {
   it('should have props for height, style, width, and source', () => {
     const wrapper = shallow(<DiamondPlayer {...minProps} />);
 
-    expect(wrapper.props().maxHeight).toBeDefined();
     expect(wrapper.props().style).toBeDefined();
-    expect(wrapper.props().maxWidth).toBeDefined();
     expect(wrapper.find(Wrapper).props().children.props.source).toBeDefined();
   });
 });
