@@ -3,27 +3,25 @@ import PropTypes from 'prop-types';
 
 import { Wrapper } from './styles';
 import Video from './components/Video';
+import ControlBar from './components/ControlBar';
 
-const DiamondPlayer = ({ width, height, style, ...rest }) => (
-  <Wrapper maxWidth={width} maxHeight={height} style={style}>
-    <Video {...rest} />
+const DiamondPlayer = ({ style, ...rest }) => (
+  <Wrapper style={style}>
+    <Video {...rest} source="" />
+    <ControlBar />
   </Wrapper>
 );
 
 DiamondPlayer.propTypes = {
-  height: PropTypes.string,
   source: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array
   ]).isRequired,
-  style: PropTypes.object,
-  width: PropTypes.string
+  style: PropTypes.object
 };
 
 DiamondPlayer.defaultProps = {
-  height: '100%',
-  style: undefined,
-  width: '100%'
+  style: undefined
 };
 
 export default DiamondPlayer;
