@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import DiamondPlayer from '../DiamondPlayer';
-import { Wrapper } from '../styles';
+import { Wrapper, InnerWrapper } from '../styles';
 
 describe('Component: DiamondPlayer', () => {
   const minProps = {
@@ -22,16 +22,28 @@ describe('Component: DiamondPlayer', () => {
     expect(wrapper.find(Wrapper)).toHaveLength(1);
   });
 
+  it('should render a InnerWrapper component', () => {
+    const wrapper = shallow(<DiamondPlayer {...minProps} />);
+
+    expect(wrapper.find(InnerWrapper)).toHaveLength(1);
+  });
+
   it('should render a Video component', () => {
     const wrapper = shallow(<DiamondPlayer {...minProps} />);
 
     expect(wrapper.find('Video')).toHaveLength(1);
   });
 
+  it('should render a ControlBar component', () => {
+    const wrapper = shallow(<DiamondPlayer {...minProps} />);
+
+    expect(wrapper.find('ControlBar')).toHaveLength(1);
+  });
+
   it('should have props for height, style, width, and source', () => {
     const wrapper = shallow(<DiamondPlayer {...minProps} />);
 
     expect(wrapper.props().style).toBeDefined();
-    expect(wrapper.find(Wrapper).props().children.props.source).toBeDefined();
+    expect(wrapper.find('Video').props().source).toBeDefined();
   });
 });
