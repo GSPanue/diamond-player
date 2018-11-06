@@ -4,15 +4,6 @@ import PropTypes from 'prop-types';
 import { Wrapper } from './styles';
 
 class Button extends Component {
-  static propTypes = {
-    children: PropTypes.element.isRequired,
-    onClick: PropTypes.func
-  };
-
-  static defaultProps = {
-    onClick: undefined
-  };
-
   constructor(props) {
     super(props);
 
@@ -38,5 +29,14 @@ class Button extends Component {
     );
   }
 }
+
+Button.propTypes = {
+  children: PropTypes.element.isRequired,
+  onClick: PropTypes.func
+};
+
+Button.defaultProps = {
+  onClick: undefined
+};
 
 export default Button;
