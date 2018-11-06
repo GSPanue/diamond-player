@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Icon } from './styles';
 import Button from '../../Button';
 
-class Play extends Component {
+class Maximize extends Component {
   constructor() {
     super();
 
@@ -12,7 +12,7 @@ class Play extends Component {
 
   handleClick() {
     /**
-     * ToDo: Pause the video.
+     * ToDo: Enter fullscreen.
      */
   }
 
@@ -25,4 +25,4 @@ class Play extends Component {
   }
 }
 
-export default Play;
+export default Maximize;

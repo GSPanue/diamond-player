@@ -4,11 +4,17 @@ import { Icon } from './styles';
 import Button from '../../Button';
 
 class Pause extends Component {
-  handleClick = () => {
+  constructor() {
+    super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
     /**
-     * ToDo: (1) Bind handler to constructor, (2) Play the video.
+     * ToDo: Play the video.
      */
-  };
+  }
 
   render() {
     return (
