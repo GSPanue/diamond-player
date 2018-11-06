@@ -31,6 +31,20 @@ describe('Component: ControlBar', () => {
     expect(wrapper.find('Pause')).toHaveLength(1);
   });
 
+  it('should render a Mute component', () => {
+    const wrapper = shallow(<ControlBar />);
+
+    expect(wrapper.find('Mute')).toHaveLength(1);
+  });
+
+  it('should render a Unmute component when showMuteButton is false', () => {
+    const wrapper = shallow(<ControlBar />);
+
+    expect(wrapper.find('Unmute')).toHaveLength(0);
+    wrapper.setState({ showMuteButton: false });
+    expect(wrapper.find('Unmute')).toHaveLength(1);
+  });
+
   it('should render a Settings component', () => {
     const wrapper = shallow(<ControlBar />);
 

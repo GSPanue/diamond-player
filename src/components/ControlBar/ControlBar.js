@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Wrapper } from './styles';
-import { Play, Pause, Settings, Minimize, Maximize } from '../ControlButton';
+import { Play, Pause, Mute, Unmute, Settings, Minimize, Maximize } from '../ControlButton';
 
 class ControlBar extends Component {
   constructor() {
@@ -9,16 +9,18 @@ class ControlBar extends Component {
 
     this.state = {
       showPlayButton: true,
+      showMuteButton: true,
       showMaximizeButton: true
     };
   }
 
   render() {
-    const { showPlayButton, showMaximizeButton } = this.state;
+    const { showPlayButton, showMuteButton, showMaximizeButton } = this.state;
 
     return (
       <Wrapper>
         {(showPlayButton) ? <Play /> : <Pause />}
+        {(showMuteButton) ? <Mute /> : <Unmute />}
         <Settings />
         {(showMaximizeButton) ? <Maximize /> : <Minimize />}
       </Wrapper>
