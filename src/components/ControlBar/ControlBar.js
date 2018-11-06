@@ -1,8 +1,13 @@
 import React from 'react';
 
 import { Wrapper } from './styles';
-import Play from '../Button';
+import { Play, Pause } from '../ControlButton';
 
-const ControlBar = () => (<Wrapper><Play /></Wrapper>);
+const ControlBar = () => (
+  <Wrapper>
+    <Play />
+    <Pause />
+  </Wrapper>
+);
 
 export default ControlBar;
