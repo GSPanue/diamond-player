@@ -1,1 +1,1 @@
-export { default } from './Maximize';
+export { default, Maximize } from './Maximize';

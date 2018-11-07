@@ -1,40 +1,97 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Play from '..';
-import { Icon } from '../styles';
+import { Play } from '..';
+import { PlayIcon, PauseIcon } from '../styles';
 
 describe('Component: Play', () => {
+  const minProps = {
+    context: {
+      play: false,
+      actions: {
+        togglePlay: () => {}
+      }
+    }
+  };
+
   it('should render without crashing', () => {
-    const wrapper = shallow(<Play />);
+    const wrapper = shallow(<Play {...minProps} />);
 
     expect(wrapper).toHaveLength(1);
   });
 
   it('should render a Button component', () => {
-    const wrapper = shallow(<Play />);
+    const wrapper = shallow(<Play {...minProps} />);
 
     expect(wrapper.find('Button')).toHaveLength(1);
   });
 
-  it('should render a Icon component', () => {
-    const wrapper = shallow(<Play />);
+  it('should render a PlayIcon component', () => {
+    const wrapper = shallow(<Play {...minProps} />);
 
-    expect(wrapper.find(Icon)).toHaveLength(1);
+    expect(wrapper.find(PlayIcon)).toHaveLength(1);
+  });
+
+  it('should render a PauseIcon component when play is true', () => {
+    const context = { play: true, actions: { togglePlay: () => {} } };
+    const wrapper = shallow(<Play {...minProps} context={context} />);
+
+    expect(wrapper.find(PauseIcon)).toHaveLength(1);
   });
 
   it('should call handleClick on a click event', () => {
     const spy = jest.spyOn(Play.prototype, 'handleClick');
-    const wrapper = shallow(<Play />);
+    const wrapper = shallow(<Play {...minProps} />);
 
     expect(spy).toHaveBeenCalledTimes(0);
     wrapper.find('Button').props().onClick();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
+  describe('Method: shouldComponentUpdate', () => {
+    it('should return false when play has not changed', () => {
+      const wrapper = shallow(<Play {...minProps} />);
+      const instance = wrapper.instance();
+
+      const nextProps = {
+        context: {
+          play: false,
+          actions: {
+            togglePlay: () => {}
+          }
+        }
+      };
+
+      expect(instance.shouldComponentUpdate(nextProps)).toBe(false);
+    });
+
+    it('should return true when play has changed', () => {
+      const wrapper = shallow(<Play {...minProps} />);
+      const instance = wrapper.instance();
+
+      const nextProps = {
+        context: {
+          play: true,
+          actions: {
+            togglePlay: () => {}
+          }
+        }
+      };
+
+      expect(instance.shouldComponentUpdate(nextProps)).toBe(true);
+    });
+  });
+
   describe('Method: handleClick', () => {
-    /**
-     * ToDo: Test handleClick.
-     */
+    it('should call togglePlay', () => {
+      const togglePlay = jest.fn();
+      const context = { play: false, actions: { togglePlay } };
+      const wrapper = shallow(<Play {...minProps} context={context} />);
+      const instance = wrapper.instance();
+
+      expect(togglePlay).toHaveBeenCalledTimes(0);
+      instance.handleClick();
+      expect(togglePlay).toHaveBeenCalledTimes(1);
+    });
   });
 });

@@ -1,28 +1,47 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { Icon } from './styles';
+import withContext from '../../withContext';
+import { PlayIcon, PauseIcon } from './styles';
 import Button from '../../Button';
 
-class Play extends Component {
+export class Play extends Component {
   constructor() {
     super();
 
     this.handleClick = this.handleClick.bind(this);
   }
 
+  shouldComponentUpdate(nextProps) {
+    const { context: { play: currentPlay } } = this.props;
+    const { context: { play: nextPlay } } = nextProps;
+
+    return (currentPlay !== nextPlay);
+  }
+
+  /**
+   * handleClick: Handles an onClick event.
+   */
   handleClick() {
-    /**
-     * ToDo: Pause the video.
-     */
+    const { context } = this.props;
+    const { actions: { togglePlay } } = context;
+
+    togglePlay();
   }
 
   render() {
+    const { context: { play: showPauseIcon } } = this.props;
+
     return (
       <Button onClick={this.handleClick}>
-        <Icon size="22" />
+        {(showPauseIcon) ? <PauseIcon size="22" /> : <PlayIcon size="22" />}
       </Button>
     );
   }
 }
 
-export default Play;
+Play.propTypes = {
+  context: PropTypes.object.isRequired
+};
+
+export default withContext(Play);
