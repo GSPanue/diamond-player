@@ -16,6 +16,12 @@ describe('Component: DiamondPlayer', () => {
     expect(wrapper).toHaveLength(1);
   });
 
+  it('should render a Provider component', () => {
+    const wrapper = shallow(<DiamondPlayer {...minProps} />);
+
+    expect(wrapper.find('Provider')).toHaveLength(1);
+  });
+
   it('should render a Wrapper component', () => {
     const wrapper = shallow(<DiamondPlayer {...minProps} />);
 
@@ -40,10 +46,10 @@ describe('Component: DiamondPlayer', () => {
     expect(wrapper.find('ControlBar')).toHaveLength(1);
   });
 
-  it('should have props for height, style, width, and source', () => {
+  it('should have props for style and source', () => {
     const wrapper = shallow(<DiamondPlayer {...minProps} />);
 
-    expect(wrapper.props().style).toBeDefined();
+    expect(wrapper.props().children.props.style).toBeDefined();
     expect(wrapper.find('Video').props().source).toBeDefined();
   });
 });

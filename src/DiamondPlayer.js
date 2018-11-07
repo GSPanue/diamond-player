@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Provider from './components/Provider';
 import { Wrapper, InnerWrapper } from './styles';
 import Video from './components/Video';
 import ControlBar from './components/ControlBar';
 
 const DiamondPlayer = ({ style, ...rest }) => (
-  <Wrapper style={style}>
-    <InnerWrapper>
-      <Video {...rest} />
-      <ControlBar />
-    </InnerWrapper>
-  </Wrapper>
+  <Provider>
+    <Wrapper style={style}>
+      <InnerWrapper>
+        <Video {...rest} />
+        <ControlBar />
+      </InnerWrapper>
+    </Wrapper>
+  </Provider>
 );
 
 DiamondPlayer.propTypes = {

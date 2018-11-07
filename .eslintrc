@@ -15,7 +15,8 @@
     "no-unused-expressions": ["error", { "allowTernary" : true }],
     "jsx-a11y/media-has-caption": "off",
     "react/forbid-prop-types": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "react/no-unused-state": "off"
   },
   "parserOptions": {
     "ecmaVersion": 6,
