@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-import { Play } from 'react-feather';
+import { Play, Pause } from 'react-feather';
 
-const Icon = styled(Play)`
+const PlayIcon = styled(Play)`
+  display: block;
+`;
+
+const PauseIcon = styled(Pause)`
   display: block;
 `;
 
 export {
-  Icon
+  PlayIcon,
+  PauseIcon
 };

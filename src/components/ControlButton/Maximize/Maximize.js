@@ -1,28 +1,47 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { Icon } from './styles';
+import withContext from '../../withContext';
+import { MaximizeIcon, MinimizeIcon } from './styles';
 import Button from '../../Button';
 
-class Maximize extends Component {
+export class Maximize extends Component {
   constructor() {
     super();
 
     this.handleClick = this.handleClick.bind(this);
   }
 
+  shouldComponentUpdate(nextProps) {
+    const { context: { maximize: currentMaximize } } = this.props;
+    const { context: { maximize: nextMaximize } } = nextProps;
+
+    return (currentMaximize !== nextMaximize);
+  }
+
+  /**
+   * handleClick: Handles an onClick event.
+   */
   handleClick() {
-    /**
-     * ToDo: Enter fullscreen.
-     */
+    const { context } = this.props;
+    const { actions: { toggleMaximize } } = context;
+
+    toggleMaximize();
   }
 
   render() {
+    const { context: { maximize: showMinimizeIcon } } = this.props;
+
     return (
       <Button onClick={this.handleClick}>
-        <Icon size="22" />
+        {(showMinimizeIcon) ? <MinimizeIcon size="22" /> : <MaximizeIcon size="22" />}
       </Button>
     );
   }
 }
 
-export default Maximize;
+Maximize.propTypes = {
+  context: PropTypes.object.isRequired
+};
+
+export default withContext(Maximize);

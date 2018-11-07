@@ -1,1 +1,1 @@
-export { default } from './Mute';
+export { default, Mute } from './Mute';
