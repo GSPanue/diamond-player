@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import withContext from '../../withContext';
 import { MuteIcon, UnmuteIcon } from './styles';
-import Button from '../../Button';
+import TooltipButton from '../../TooltipButton';
 
 export class Mute extends Component {
   constructor() {
@@ -31,11 +31,12 @@ export class Mute extends Component {
 
   render() {
     const { context: { mute: showUnmuteIcon } } = this.props;
+    const tooltipTitle = (showUnmuteIcon) ? 'Unmute' : 'Mute';
 
     return (
-      <Button onClick={this.handleClick}>
+      <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
         {(showUnmuteIcon) ? <UnmuteIcon size="22" /> : <MuteIcon size="22" />}
-      </Button>
+      </TooltipButton>
     );
   }
 }

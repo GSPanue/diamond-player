@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import withContext from '../../withContext';
 import { PlayIcon, PauseIcon } from './styles';
-import Button from '../../Button';
+import TooltipButton from '../../TooltipButton';
 
 export class Play extends Component {
   constructor() {
@@ -31,11 +31,12 @@ export class Play extends Component {
 
   render() {
     const { context: { play: showPauseIcon } } = this.props;
+    const tooltipTitle = (showPauseIcon) ? 'Pause' : 'Play';
 
     return (
-      <Button onClick={this.handleClick}>
+      <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
         {(showPauseIcon) ? <PauseIcon size="22" /> : <PlayIcon size="22" />}
-      </Button>
+      </TooltipButton>
     );
   }
 }

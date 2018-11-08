@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Settings from '..';
-import { Icon } from '../styles';
+import { SettingsIcon } from '../styles';
 
 describe('Component: Settings', () => {
   it('should render without crashing', () => {
@@ -11,16 +11,16 @@ describe('Component: Settings', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('should render a Button component', () => {
+  it('should render a TooltipButton component', () => {
     const wrapper = shallow(<Settings />);
 
-    expect(wrapper.find('Button')).toHaveLength(1);
+    expect(wrapper.find('TooltipButton')).toHaveLength(1);
   });
 
-  it('should render a Icon component', () => {
+  it('should render a SettingsIcon component', () => {
     const wrapper = shallow(<Settings />);
 
-    expect(wrapper.find(Icon)).toHaveLength(1);
+    expect(wrapper.find(SettingsIcon)).toHaveLength(1);
   });
 
   it('should call handleClick on a click event', () => {
@@ -28,7 +28,7 @@ describe('Component: Settings', () => {
     const wrapper = shallow(<Settings />);
 
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('Button').props().onClick();
+    wrapper.find('TooltipButton').props().onClick();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 

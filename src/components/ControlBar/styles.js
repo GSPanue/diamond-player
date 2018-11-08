@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   padding: 35px 10px 10px;
   background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.7));
+  user-select: none;
 `;
 
 export {

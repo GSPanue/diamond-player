@@ -20,10 +20,23 @@ describe('Component: Mute', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('should render a Button component', () => {
+  it('should render a TooltipButton component', () => {
     const wrapper = shallow(<Mute {...minProps} />);
 
-    expect(wrapper.find('Button')).toHaveLength(1);
+    expect(wrapper.find('TooltipButton')).toHaveLength(1);
+  });
+
+  it('should pass the title "Mute" to the TooltipButton component', () => {
+    const wrapper = shallow(<Mute {...minProps} />);
+
+    expect(wrapper.find('TooltipButton').props().title).toEqual('Mute');
+  });
+
+  it('should pass the title "Unmute" to the TooltipButton component when mute is true', () => {
+    const context = { mute: true, actions: { toggleMute: () => {} } };
+    const wrapper = shallow(<Mute {...minProps} context={context} />);
+
+    expect(wrapper.find('TooltipButton').props().title).toEqual('Unmute');
   });
 
   it('should render a MuteIcon component', () => {
@@ -44,7 +57,7 @@ describe('Component: Mute', () => {
     const wrapper = shallow(<Mute {...minProps} />);
 
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('Button').props().onClick();
+    wrapper.find('TooltipButton').props().onClick();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 

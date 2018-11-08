@@ -7,7 +7,9 @@ import { Wrapper } from '../styles';
 describe('Component: Button', () => {
   const minProps = {
     children: <div />,
-    onClick: () => {}
+    onClick: () => {},
+    onMouseEnter: () => {},
+    onMouseLeave: () => {}
   };
 
   it('should render without crashing', () => {
@@ -44,6 +46,24 @@ describe('Component: Button', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
+  it('should call handleMouseEnter on a mouseenter event', () => {
+    const spy = jest.spyOn(Button.prototype, 'handleMouseEnter');
+    const wrapper = shallow(<Button {...minProps} />);
+
+    expect(spy).toHaveBeenCalledTimes(0);
+    wrapper.find(Wrapper).props().onMouseEnter();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call handleMouseLeave on a mouseleave event', () => {
+    const spy = jest.spyOn(Button.prototype, 'handleMouseLeave');
+    const wrapper = shallow(<Button {...minProps} />);
+
+    expect(spy).toHaveBeenCalledTimes(0);
+    wrapper.find(Wrapper).props().onMouseLeave();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
   describe('Method: handleClick', () => {
     it('should call onClick', () => {
       const onClick = jest.fn();
@@ -53,6 +73,30 @@ describe('Component: Button', () => {
       expect(onClick).toHaveBeenCalledTimes(0);
       instance.handleClick();
       expect(onClick).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Method: handleMouseEnter', () => {
+    it('should call onMouseEnter', () => {
+      const onMouseEnter = jest.fn();
+      const wrapper = shallow(<Button {...minProps} onMouseEnter={onMouseEnter} />);
+      const instance = wrapper.instance();
+
+      expect(onMouseEnter).toHaveBeenCalledTimes(0);
+      instance.handleMouseEnter();
+      expect(onMouseEnter).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Method: handleMouseLeave', () => {
+    it('should call onMouseLeave', () => {
+      const onMouseLeave = jest.fn();
+      const wrapper = shallow(<Button {...minProps} onMouseLeave={onMouseLeave} />);
+      const instance = wrapper.instance();
+
+      expect(onMouseLeave).toHaveBeenCalledTimes(0);
+      instance.handleMouseLeave();
+      expect(onMouseLeave).toHaveBeenCalledTimes(1);
     });
   });
 });
