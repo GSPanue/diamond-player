@@ -20,10 +20,23 @@ describe('Component: Play', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('should render a Button component', () => {
+  it('should render a TooltipButton component', () => {
     const wrapper = shallow(<Play {...minProps} />);
 
-    expect(wrapper.find('Button')).toHaveLength(1);
+    expect(wrapper.find('TooltipButton')).toHaveLength(1);
+  });
+
+  it('should pass the title "Play" to the TooltipButton component', () => {
+    const wrapper = shallow(<Play {...minProps} />);
+
+    expect(wrapper.find('TooltipButton').props().title).toEqual('Play');
+  });
+
+  it('should pass the title "Pause" to the TooltipButton component when play is true', () => {
+    const context = { play: true, actions: { togglePlay: () => {} } };
+    const wrapper = shallow(<Play {...minProps} context={context} />);
+
+    expect(wrapper.find('TooltipButton').props().title).toEqual('Pause');
   });
 
   it('should render a PlayIcon component', () => {
@@ -44,7 +57,7 @@ describe('Component: Play', () => {
     const wrapper = shallow(<Play {...minProps} />);
 
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('Button').props().onClick();
+    wrapper.find('TooltipButton').props().onClick();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 

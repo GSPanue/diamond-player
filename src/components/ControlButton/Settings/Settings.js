@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { Icon } from './styles';
-import Button from '../../Button';
+import { SettingsIcon } from './styles';
+import TooltipButton from '../../TooltipButton';
 
 class Settings extends Component {
   constructor() {
@@ -18,9 +18,9 @@ class Settings extends Component {
 
   render() {
     return (
-      <Button onClick={this.handleClick}>
-        <Icon size="22" />
-      </Button>
+      <TooltipButton title="Settings" onClick={this.handleClick}>
+        <SettingsIcon size="22" />
+      </TooltipButton>
     );
   }
 }

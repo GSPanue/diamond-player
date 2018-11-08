@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import withContext from '../../withContext';
 import { MaximizeIcon, MinimizeIcon } from './styles';
-import Button from '../../Button';
+import TooltipButton from '../../TooltipButton';
 
 export class Maximize extends Component {
   constructor() {
@@ -31,11 +31,12 @@ export class Maximize extends Component {
 
   render() {
     const { context: { maximize: showMinimizeIcon } } = this.props;
+    const tooltipTitle = (showMinimizeIcon) ? 'Exit Fullscreen' : 'Enter Fullscreen';
 
     return (
-      <Button onClick={this.handleClick}>
+      <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
         {(showMinimizeIcon) ? <MinimizeIcon size="22" /> : <MaximizeIcon size="22" />}
-      </Button>
+      </TooltipButton>
     );
   }
 }

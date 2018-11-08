@@ -20,10 +20,23 @@ describe('Component: Maximize', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('should render a Button component', () => {
+  it('should render a TooltipButton component', () => {
     const wrapper = shallow(<Maximize {...minProps} />);
 
-    expect(wrapper.find('Button')).toHaveLength(1);
+    expect(wrapper.find('TooltipButton')).toHaveLength(1);
+  });
+
+  it('should pass the title "Enter Fullscreen" to the TooltipButton component', () => {
+    const wrapper = shallow(<Maximize {...minProps} />);
+
+    expect(wrapper.find('TooltipButton').props().title).toEqual('Enter Fullscreen');
+  });
+
+  it('should pass the title "Exit Fullscreen" to the TooltipButton component when maximize is true', () => {
+    const context = { maximize: true, actions: { toggleMaximize: () => {} } };
+    const wrapper = shallow(<Maximize {...minProps} context={context} />);
+
+    expect(wrapper.find('TooltipButton').props().title).toEqual('Exit Fullscreen');
   });
 
   it('should render a MaximizeIcon component', () => {
@@ -44,7 +57,7 @@ describe('Component: Maximize', () => {
     const wrapper = shallow(<Maximize {...minProps} />);
 
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('Button').props().onClick();
+    wrapper.find('TooltipButton').props().onClick();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
