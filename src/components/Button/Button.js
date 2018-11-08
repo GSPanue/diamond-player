@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { Wrapper } from './styles';
 
-class Button extends Component {
+class Button extends PureComponent {
   constructor(props) {
     super(props);
 
     this.handleClick = (props.onClick) && this.handleClick.bind(this);
+    this.handleMouseEnter = (props.onMouseEnter) && this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = (props.onMouseLeave) && this.handleMouseLeave.bind(this);
   }
 
   /**
@@ -19,11 +21,34 @@ class Button extends Component {
     callback();
   }
 
+  /**
+   * handleMouseEnter: Handles an onMouseEnter event.
+   */
+  handleMouseEnter() {
+    const { onMouseEnter: callback } = this.props;
+
+    callback();
+  }
+
+  /**
+   * handleMouseLeave: Handles an onMouseLeave event.
+   */
+  handleMouseLeave() {
+    const { onMouseLeave: callback } = this.props;
+
+    callback();
+  }
+
   render() {
     const { children, ...rest } = this.props;
 
     return (
-      <Wrapper {...rest} onClick={this.handleClick}>
+      <Wrapper
+        {...rest}
+        onClick={this.handleClick}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
         {children}
       </Wrapper>
     );
@@ -32,11 +57,15 @@ class Button extends Component {
 
 Button.propTypes = {
   children: PropTypes.element.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func
 };
 
 Button.defaultProps = {
-  onClick: undefined
+  onClick: undefined,
+  onMouseEnter: undefined,
+  onMouseLeave: undefined
 };
 
 export default Button;
