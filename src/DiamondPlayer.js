@@ -21,11 +21,12 @@ DiamondPlayer.propTypes = {
   source: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array
-  ]).isRequired,
+  ]),
   style: PropTypes.object
 };
 
 DiamondPlayer.defaultProps = {
+  source: '',
   style: undefined
 };
 
