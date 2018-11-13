@@ -33,7 +33,7 @@ const Wrapper = styled.div`
     transform: translateY(-100%);
     white-space: nowrap;
     z-index: 2;
-    font-weight: 600;
+    font-weight: bold;
   }
 `;
 
