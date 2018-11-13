@@ -49,7 +49,7 @@ describe('Component: DiamondPlayer', () => {
   it('should have props for style and source', () => {
     const wrapper = shallow(<DiamondPlayer {...minProps} />);
 
-    expect(wrapper.props().children.props.style).toBeDefined();
+    expect(wrapper.find(Wrapper).props().style).toBeDefined();
     expect(wrapper.find('Video').props().source).toBeDefined();
   });
 });
