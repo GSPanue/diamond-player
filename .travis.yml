@@ -14,5 +14,9 @@ jobs:
     - stage: test
       script: npm run test
 
+cache:
+  directories:
+    - node_modules
+
 notifications:
   email: false
