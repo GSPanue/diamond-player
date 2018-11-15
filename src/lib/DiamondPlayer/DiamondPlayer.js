@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ErrorBoundary from './components/ErrorBoundary/index';
-import Provider from './components/Provider/index';
+import ErrorBoundary from './components/ErrorBoundary';
+import Provider from './components/Provider';
 import { Wrapper, InnerWrapper } from './styles';
-import Video from './components/Video/index';
-import ControlBar from './components/ControlBar/index';
+import Video from './components/Video';
+import ControlBar from './components/ControlBar';
 
 const DiamondPlayer = ({ style, ...rest }) => (
   <ErrorBoundary>

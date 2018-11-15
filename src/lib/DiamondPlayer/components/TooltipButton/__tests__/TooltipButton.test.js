@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TooltipButton from '../index';
+import TooltipButton from '..';
 
 describe('Component: TooltipButton', () => {
   const minProps = {

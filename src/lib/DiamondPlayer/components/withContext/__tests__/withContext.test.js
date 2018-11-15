@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import withContext from '../index';
+import withContext from '..';
 
 describe('Component: withContext', () => {
   const Component = () => <div />;
