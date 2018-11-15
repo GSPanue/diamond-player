@@ -5,7 +5,7 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 
 module.exports = {
-  entry: path.join(root, 'src'),
+  entry: path.join(root, 'src/demo'),
   output: {
     path: path.join(root, 'demo/js'),
     publicPath: '/js/',
