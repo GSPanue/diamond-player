@@ -29,7 +29,7 @@
     "build:demo": "webpack -p --config ./config/webpack.prod.config.js",
     "build:lib": "webpack --config ./config/webpack.lib.config.js",
     "report": "webpack-bundle-analyzer --port 4200 ./demo/js/stats.json",
-    "test": "jest",
+    "test": "jest --silent",
     "test:watch": "npm test -- --watch"
   },
   "jest": {
