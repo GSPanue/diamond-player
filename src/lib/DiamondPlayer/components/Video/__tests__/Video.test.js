@@ -6,7 +6,7 @@ import { Wrapper } from '../styles';
 
 describe('Component: Video', () => {
   const minProps = {
-    source: '',
+    src: '',
     poster: '',
     preload: 'none'
   };
@@ -23,11 +23,24 @@ describe('Component: Video', () => {
     expect(wrapper.find(Wrapper)).toHaveLength(1);
   });
 
-  it('should render two source tags', () => {
-    const source = [{ id: 'a', src: '', type: '' }, { id: 'b', src: '', type: '' }];
-    const wrapper = shallow(<Video {...minProps} source={source} />);
+  it('should have a src prop when children is not defined', () => {
+    const wrapper = shallow(<Video {...minProps} />);
 
-    expect(wrapper.find('source')).toHaveLength(2);
+    expect(wrapper.props().src).toBeDefined();
+  });
+
+  it('should render children when children is defined', () => {
+    const children = <div />;
+    const wrapper = shallow(<Video {...minProps}>{children}</Video>);
+
+    expect(wrapper.find('div')).toHaveLength(1);
+  });
+
+  it('should not have a src prop when children is defined', () => {
+    const children = <div />;
+    const wrapper = shallow(<Video {...minProps}>{children}</Video>);
+
+    expect(wrapper.props().src).toBeUndefined();
   });
 
   it('it should have props for autoPlay, loop, muted, playsInline, poster, preload, and src', () => {
