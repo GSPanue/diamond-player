@@ -12,7 +12,7 @@ jobs:
       script: npm run build:lib
     - script: npm run build:demo
     - stage: test
-      script: npm run test
+      script: npm run test -s
 
 cache:
   directories:
