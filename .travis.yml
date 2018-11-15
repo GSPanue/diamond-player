@@ -8,10 +8,15 @@ install:
 
 jobs:
   include:
-    - stage: Build
-      script: npm run build
-    - stage: Test
+    - stage: build
+      script: npm run build:lib
+    - script: npm run build:demo
+    - stage: test
       script: npm run test
+
+cache:
+  directories:
+    - node_modules
 
 notifications:
   email: false
