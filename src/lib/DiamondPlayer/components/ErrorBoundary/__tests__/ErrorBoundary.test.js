@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import ErrorBoundary from '..';
+import ErrorBoundary from '../index';
 
 describe('Component: ErrorBoundary', () => {
   const minProps = {

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import Tooltip from '../Tooltip';
-import Button from '../Button';
+import Tooltip from '../Tooltip/index';
+import Button from '../Button/index';
 
 class TooltipButton extends PureComponent {
   constructor(props) {

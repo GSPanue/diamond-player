@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Context } from '../Provider';
+import { Context } from '../Provider/index';
 
 const withContext = (Component) => {
   const WithContext = (props) => (

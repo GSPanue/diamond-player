@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Provider from '..';
+import Provider from '../index';
 
 describe('Component: Provider', () => {
   const minProps = {
