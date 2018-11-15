@@ -8,11 +8,10 @@ install:
 
 jobs:
   include:
-    - stage: Build Library
+    - stage: build
       script: npm run build:lib
-    - stage: Build Demo
-      script: npm run build:demo
-    - stage: Test
+    - script: npm run build:demo
+    - stage: test
       script: npm run test
 
 notifications:
