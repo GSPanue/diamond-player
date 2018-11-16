@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import DiamondPlayer from '..';
-import { Wrapper, InnerWrapper } from '../styles';
+import { Wrapper } from '../styles';
 
 describe('Component: DiamondPlayer', () => {
   const minProps = {
@@ -26,12 +26,6 @@ describe('Component: DiamondPlayer', () => {
     const wrapper = shallow(<DiamondPlayer {...minProps} />);
 
     expect(wrapper.find(Wrapper)).toHaveLength(1);
-  });
-
-  it('should render a InnerWrapper component', () => {
-    const wrapper = shallow(<DiamondPlayer {...minProps} />);
-
-    expect(wrapper.find(InnerWrapper)).toHaveLength(1);
   });
 
   it('should render a Video component', () => {

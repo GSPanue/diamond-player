@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import ErrorBoundary from './components/ErrorBoundary';
 import Provider from './components/Provider';
-import { Wrapper, InnerWrapper } from './styles';
+import { Wrapper } from './styles';
 import Video from './components/Video';
 import ControlBar from './components/ControlBar';
 
@@ -11,10 +11,8 @@ const DiamondPlayer = ({ style, ...rest }) => (
   <ErrorBoundary>
     <Provider>
       <Wrapper style={style}>
-        <InnerWrapper>
-          <Video {...rest} />
-          <ControlBar />
-        </InnerWrapper>
+        <Video {...rest} />
+        <ControlBar />
       </Wrapper>
     </Provider>
   </ErrorBoundary>
