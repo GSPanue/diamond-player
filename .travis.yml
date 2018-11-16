@@ -6,6 +6,11 @@ node_js:
 install:
   - npm install
 
+stages:
+  - build
+  - test
+  - report
+
 jobs:
   include:
     - stage: build
@@ -13,9 +18,8 @@ jobs:
     - script: npm run build:demo
     - stage: test
       script: npm run test
-
-after_success:
-  - npm run test:report
+    - stage: report
+      script: npm run test:report
 
 cache:
   directories:
