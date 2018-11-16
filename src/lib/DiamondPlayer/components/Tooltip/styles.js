@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     font-size: 13px;
     border-radius: 3px;
     box-shadow: 0 1px 2px rgba(0,0,0,.15);
-    color: #4F5B5F;
+    color: #000000;
     padding: 5px 7.5px;
     transform: translateY(-100%);
     white-space: nowrap;
