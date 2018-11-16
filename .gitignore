@@ -7,3 +7,4 @@ gen
 # Diamond Player
 /node_modules
 /demo/js/stats.json
+/coverage
