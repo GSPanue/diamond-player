@@ -14,6 +14,9 @@ jobs:
     - stage: test
       script: npm run test
 
+after_success:
+  - npm run test:report
+
 cache:
   directories:
     - node_modules

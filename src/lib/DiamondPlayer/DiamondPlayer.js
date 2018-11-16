@@ -22,7 +22,10 @@ const DiamondPlayer = ({ style, ...rest }) => (
 
 DiamondPlayer.propTypes = {
   autoPlay: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]),
   controls: PropTypes.bool,
   loop: PropTypes.bool,
   muted: PropTypes.bool,
