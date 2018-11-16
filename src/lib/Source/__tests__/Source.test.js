@@ -5,6 +5,7 @@ import { Source } from '..';
 
 describe('Component: Source', () => {
   const minProps = {
+    label: '',
     src: '',
     srcSet: '',
     media: '',
@@ -24,9 +25,10 @@ describe('Component: Source', () => {
     expect(wrapper.find('source')).toHaveLength(1);
   });
 
-  it('should have props for src, srcSet, media, sizes, and type', () => {
+  it('should have props for label, src, srcSet, media, sizes, and type', () => {
     const wrapper = shallow(<Source {...minProps} />);
 
+    expect(wrapper.props().label).toBeDefined();
     expect(wrapper.props().src).toBeDefined();
     expect(wrapper.props().srcSet).toBeDefined();
     expect(wrapper.props().media).toBeDefined();

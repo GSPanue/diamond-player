@@ -6,6 +6,7 @@ const Source = (props) => (
 );
 
 Source.propTypes = {
+  label: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   srcSet: PropTypes.string,
   media: PropTypes.string,
