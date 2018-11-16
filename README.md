@@ -2,10 +2,11 @@
 
 <div align="center">
 
-  A customisable HTML5 video player component for [React](https://reactjs.org)
+A customisable HTML5 video player component for [React](https://reactjs.org)
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/GSPanue/diamond-player/blob/master/LICENSE.md)
-  [![Build Status](https://travis-ci.com/GSPanue/diamond-player.svg?branch=master)](https://travis-ci.com/GSPanue/diamond-player)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/GSPanue/diamond-player/blob/master/LICENSE.md)
+[![Build Status](https://travis-ci.com/GSPanue/diamond-player.svg?branch=develop)](https://travis-ci.com/GSPanue/diamond-player)
+[![Coverage Status](https://coveralls.io/repos/github/GSPanue/diamond-player/badge.svg?branch=develop)](https://coveralls.io/github/GSPanue/diamond-player?branch=develop)
 
 </div>
 
