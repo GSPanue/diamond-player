@@ -23,6 +23,8 @@
 - Open the demo bundle analyser: ``npm run report``
 - Run all unit tests: ``npm run test``
 - Run tests related to changed files: ``npm run test:watch``
+- Create code coverage reports: `npm run test:coverage`
+- Send code coverage reports to Coveralls: `npm run test:report`
 
 ## Version
 
