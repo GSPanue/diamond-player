@@ -1,17 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Play } from '..';
+import Play from '../Play';
 import { PlayIcon, PauseIcon } from '../styles';
 
 describe('Component: Play', () => {
   const minProps = {
-    context: {
-      play: false,
-      actions: {
-        togglePlay: () => {}
-      }
-    }
+    isPlaying: false,
+    playVideo: () => {},
+    pauseVideo: () => {}
   };
 
   it('should render without crashing', () => {
@@ -32,9 +29,8 @@ describe('Component: Play', () => {
     expect(wrapper.find('TooltipButton').props().title).toEqual('Play');
   });
 
-  it('should pass the title "Pause" to the TooltipButton component when play is true', () => {
-    const context = { play: true, actions: { togglePlay: () => {} } };
-    const wrapper = shallow(<Play {...minProps} context={context} />);
+  it('should pass the title "Pause" to the TooltipButton component when isPlaying is true', () => {
+    const wrapper = shallow(<Play {...minProps} isPlaying />);
 
     expect(wrapper.find('TooltipButton').props().title).toEqual('Pause');
   });
@@ -45,11 +41,19 @@ describe('Component: Play', () => {
     expect(wrapper.find(PlayIcon)).toHaveLength(1);
   });
 
-  it('should render a PauseIcon component when play is true', () => {
-    const context = { play: true, actions: { togglePlay: () => {} } };
-    const wrapper = shallow(<Play {...minProps} context={context} />);
+  it('should render a PauseIcon component when isPlaying is true', () => {
+    const wrapper = shallow(<Play {...minProps} isPlaying />);
 
     expect(wrapper.find(PauseIcon)).toHaveLength(1);
+  });
+
+  it('should have props for isPlaying, playVideo, and pauseVideo', () => {
+    const wrapper = shallow(<Play {...minProps} />);
+    const instance = wrapper.instance();
+
+    expect(instance.props.isPlaying).toBeDefined();
+    expect(instance.props.playVideo).toBeDefined();
+    expect(instance.props.pauseVideo).toBeDefined();
   });
 
   it('should call handleClick on a click event', () => {
@@ -62,33 +66,23 @@ describe('Component: Play', () => {
   });
 
   describe('Method: shouldComponentUpdate', () => {
-    it('should return false when play has not changed', () => {
+    it('should return false when isPlaying has not changed', () => {
       const wrapper = shallow(<Play {...minProps} />);
       const instance = wrapper.instance();
 
       const nextProps = {
-        context: {
-          play: false,
-          actions: {
-            togglePlay: () => {}
-          }
-        }
+        isPlaying: false
       };
 
       expect(instance.shouldComponentUpdate(nextProps)).toBe(false);
     });
 
-    it('should return true when play has changed', () => {
+    it('should return true when isPlaying has changed', () => {
       const wrapper = shallow(<Play {...minProps} />);
       const instance = wrapper.instance();
 
       const nextProps = {
-        context: {
-          play: true,
-          actions: {
-            togglePlay: () => {}
-          }
-        }
+        isPlaying: true
       };
 
       expect(instance.shouldComponentUpdate(nextProps)).toBe(true);
@@ -96,15 +90,24 @@ describe('Component: Play', () => {
   });
 
   describe('Method: handleClick', () => {
-    it('should call togglePlay', () => {
-      const togglePlay = jest.fn();
-      const context = { play: false, actions: { togglePlay } };
-      const wrapper = shallow(<Play {...minProps} context={context} />);
+    it('should call playVideo when isPlaying is false', () => {
+      const playVideo = jest.fn();
+      const wrapper = shallow(<Play {...minProps} playVideo={playVideo} />);
       const instance = wrapper.instance();
 
-      expect(togglePlay).toHaveBeenCalledTimes(0);
+      expect(playVideo).toHaveBeenCalledTimes(0);
       instance.handleClick();
-      expect(togglePlay).toHaveBeenCalledTimes(1);
+      expect(playVideo).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call pauseVideo when isPlaying is true', () => {
+      const pauseVideo = jest.fn();
+      const wrapper = shallow(<Play {...minProps} isPlaying pauseVideo={pauseVideo} />);
+      const instance = wrapper.instance();
+
+      expect(pauseVideo).toHaveBeenCalledTimes(0);
+      instance.handleClick();
+      expect(pauseVideo).toHaveBeenCalledTimes(1);
     });
   });
 });

@@ -1,17 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Maximize } from '..';
+import Maximize from '../Maximize';
 import { MaximizeIcon, MinimizeIcon } from '../styles';
 
 describe('Component: Maximize', () => {
   const minProps = {
-    context: {
-      maximize: false,
-      actions: {
-        toggleMaximize: () => {}
-      }
-    }
+    isMaximized: false,
+    maximizeVideo: () => {},
+    minimizeVideo: () => {}
   };
 
   it('should render without crashing', () => {
@@ -32,9 +29,8 @@ describe('Component: Maximize', () => {
     expect(wrapper.find('TooltipButton').props().title).toEqual('Enter Fullscreen');
   });
 
-  it('should pass the title "Exit Fullscreen" to the TooltipButton component when maximize is true', () => {
-    const context = { maximize: true, actions: { toggleMaximize: () => {} } };
-    const wrapper = shallow(<Maximize {...minProps} context={context} />);
+  it('should pass the title "Exit Fullscreen" to the TooltipButton component when isMaximized is true', () => {
+    const wrapper = shallow(<Maximize {...minProps} isMaximized />);
 
     expect(wrapper.find('TooltipButton').props().title).toEqual('Exit Fullscreen');
   });
@@ -45,11 +41,19 @@ describe('Component: Maximize', () => {
     expect(wrapper.find(MaximizeIcon)).toHaveLength(1);
   });
 
-  it('should render a MinimizeIcon component when maximize is true', () => {
-    const context = { maximize: true, actions: { toggleMaximize: () => {} } };
-    const wrapper = shallow(<Maximize {...minProps} context={context} />);
+  it('should render a MinimizeIcon component when isMaximized is true', () => {
+    const wrapper = shallow(<Maximize {...minProps} isMaximized />);
 
     expect(wrapper.find(MinimizeIcon)).toHaveLength(1);
+  });
+
+  it('should have props for isMaximized, maximizeVideo, and minimizeVideo', () => {
+    const wrapper = shallow(<Maximize {...minProps} />);
+    const instance = wrapper.instance();
+
+    expect(instance.props.isMaximized).toBeDefined();
+    expect(instance.props.maximizeVideo).toBeDefined();
+    expect(instance.props.minimizeVideo).toBeDefined();
   });
 
   it('should call handleClick on a click event', () => {
@@ -62,33 +66,23 @@ describe('Component: Maximize', () => {
   });
 
   describe('Method: shouldComponentUpdate', () => {
-    it('should return false when maximize has not changed', () => {
+    it('should return false when isMaximized has not changed', () => {
       const wrapper = shallow(<Maximize {...minProps} />);
       const instance = wrapper.instance();
 
       const nextProps = {
-        context: {
-          maximize: false,
-          actions: {
-            toggleMaximize: () => {}
-          }
-        }
+        isMaximized: false
       };
 
       expect(instance.shouldComponentUpdate(nextProps)).toBe(false);
     });
 
-    it('should return true when maximize has changed', () => {
+    it('should return true when isMaximized has changed', () => {
       const wrapper = shallow(<Maximize {...minProps} />);
       const instance = wrapper.instance();
 
       const nextProps = {
-        context: {
-          maximize: true,
-          actions: {
-            toggleMaximize: () => {}
-          }
-        }
+        isMaximized: true
       };
 
       expect(instance.shouldComponentUpdate(nextProps)).toBe(true);
@@ -96,15 +90,24 @@ describe('Component: Maximize', () => {
   });
 
   describe('Method: handleClick', () => {
-    it('should call toggleMaximize', () => {
-      const toggleMaximize = jest.fn();
-      const context = { maximize: false, actions: { toggleMaximize } };
-      const wrapper = shallow(<Maximize {...minProps} context={context} />);
+    it('should call maximizeVideo when isMaximized is false', () => {
+      const maximizeVideo = jest.fn();
+      const wrapper = shallow(<Maximize {...minProps} maximizeVideo={maximizeVideo} />);
       const instance = wrapper.instance();
 
-      expect(toggleMaximize).toHaveBeenCalledTimes(0);
+      expect(maximizeVideo).toHaveBeenCalledTimes(0);
       instance.handleClick();
-      expect(toggleMaximize).toHaveBeenCalledTimes(1);
+      expect(maximizeVideo).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call minimizeVideo when isMaximized is true', () => {
+      const minimizeVideo = jest.fn();
+      const wrapper = shallow(<Maximize {...minProps} isMaximized minimizeVideo={minimizeVideo} />);
+      const instance = wrapper.instance();
+
+      expect(minimizeVideo).toHaveBeenCalledTimes(0);
+      instance.handleClick();
+      expect(minimizeVideo).toHaveBeenCalledTimes(1);
     });
   });
 });

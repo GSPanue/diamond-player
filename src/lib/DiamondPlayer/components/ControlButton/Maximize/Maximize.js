@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import withContext from '../../withContext';
+import { propTypes } from './types';
 import { MaximizeIcon, MinimizeIcon } from './styles';
 import TooltipButton from '../../TooltipButton';
 
-export class Maximize extends Component {
+class Maximize extends Component {
   constructor() {
     super();
 
@@ -13,36 +12,33 @@ export class Maximize extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { context: { maximize: currentMaximize } } = this.props;
-    const { context: { maximize: nextMaximize } } = nextProps;
+    const { isMaximized: currentIsMaximized } = this.props;
+    const { isMaximized: nextIsMaximized } = nextProps;
 
-    return (currentMaximize !== nextMaximize);
+    return (currentIsMaximized !== nextIsMaximized);
   }
 
   /**
    * handleClick: Handles an onClick event.
    */
   handleClick() {
-    const { context } = this.props;
-    const { actions: { toggleMaximize } } = context;
+    const { isMaximized, maximizeVideo, minimizeVideo } = this.props;
 
-    toggleMaximize();
+    (isMaximized) ? minimizeVideo() : maximizeVideo();
   }
 
   render() {
-    const { context: { maximize: showMinimizeIcon } } = this.props;
-    const tooltipTitle = (showMinimizeIcon) ? 'Exit Fullscreen' : 'Enter Fullscreen';
+    const { isMaximized } = this.props;
+    const tooltipTitle = (isMaximized) ? 'Exit Fullscreen' : 'Enter Fullscreen';
 
     return (
       <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
-        {(showMinimizeIcon) ? <MinimizeIcon size="22" /> : <MaximizeIcon size="22" />}
+        {(isMaximized) ? <MinimizeIcon size="22" /> : <MaximizeIcon size="22" />}
       </TooltipButton>
     );
   }
 }
 
-Maximize.propTypes = {
-  context: PropTypes.object.isRequired
-};
+Maximize.propTypes = propTypes;
 
-export default withContext(Maximize);
+export default Maximize;

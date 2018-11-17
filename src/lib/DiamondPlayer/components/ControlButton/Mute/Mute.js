@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import withContext from '../../withContext';
+import { propTypes } from './types';
 import { MuteIcon, UnmuteIcon } from './styles';
 import TooltipButton from '../../TooltipButton';
 
-export class Mute extends Component {
+class Mute extends Component {
   constructor() {
     super();
 
@@ -13,36 +12,33 @@ export class Mute extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { context: { mute: currentMute } } = this.props;
-    const { context: { mute: nextMute } } = nextProps;
+    const { isMuted: currentIsMuted } = this.props;
+    const { isMuted: nextIsMuted } = nextProps;
 
-    return (currentMute !== nextMute);
+    return (currentIsMuted !== nextIsMuted);
   }
 
   /**
    * handleClick: Handles an onClick event.
    */
   handleClick() {
-    const { context } = this.props;
-    const { actions: { toggleMute } } = context;
+    const { isMuted, muteVideo, unmuteVideo } = this.props;
 
-    toggleMute();
+    (isMuted) ? unmuteVideo() : muteVideo();
   }
 
   render() {
-    const { context: { mute: showUnmuteIcon } } = this.props;
-    const tooltipTitle = (showUnmuteIcon) ? 'Unmute' : 'Mute';
+    const { isMuted } = this.props;
+    const tooltipTitle = (isMuted) ? 'Unmute' : 'Mute';
 
     return (
       <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
-        {(showUnmuteIcon) ? <UnmuteIcon size="22" /> : <MuteIcon size="22" />}
+        {(isMuted) ? <UnmuteIcon size="22" /> : <MuteIcon size="22" />}
       </TooltipButton>
     );
   }
 }
 
-Mute.propTypes = {
-  context: PropTypes.object.isRequired
-};
+Mute.propTypes = propTypes;
 
-export default withContext(Mute);
+export default Mute;
