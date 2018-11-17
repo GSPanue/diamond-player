@@ -37,4 +37,4 @@ Gurdev S. Panue
 
 ## License
 
-Diamond Player is licensed under the MIT License.
+Diamond Player is licensed under the [MIT License](https://github.com/GSPanue/diamond-player/blob/master/LICENSE.md).
