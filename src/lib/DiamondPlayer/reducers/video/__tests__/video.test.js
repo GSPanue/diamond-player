@@ -12,9 +12,9 @@ import reducer from '..';
 describe('Reducer: Video', () => {
   it('should return the initial state', () => {
     const expectedState = {
-      play: false,
-      mute: false,
-      maximize: false
+      playing: false,
+      muted: false,
+      maximized: false
     };
 
     const actualState = reducer(undefined, {});
@@ -24,15 +24,15 @@ describe('Reducer: Video', () => {
 
   it('should handle PLAY_VIDEO', () => {
     const initialState = {
-      play: false,
-      mute: false,
-      maximize: false
+      playing: false,
+      muted: false,
+      maximized: false
     };
 
     const expectedState = {
-      play: true,
-      mute: false,
-      maximize: false
+      playing: true,
+      muted: false,
+      maximized: false
     };
 
     const actualState = reducer(initialState, { type: PLAY_VIDEO });
@@ -42,15 +42,15 @@ describe('Reducer: Video', () => {
 
   it('should handle PAUSE_VIDEO', () => {
     const initialState = {
-      play: true,
-      mute: false,
-      maximize: false
+      playing: true,
+      muted: false,
+      maximized: false
     };
 
     const expectedState = {
-      play: false,
-      mute: false,
-      maximize: false
+      playing: false,
+      muted: false,
+      maximized: false
     };
 
     const actualState = reducer(initialState, { type: PAUSE_VIDEO });
@@ -60,15 +60,15 @@ describe('Reducer: Video', () => {
 
   it('should handle MUTE_VIDEO', () => {
     const initialState = {
-      play: false,
-      mute: false,
-      maximize: false
+      playing: false,
+      muted: false,
+      maximized: false
     };
 
     const expectedState = {
-      play: false,
-      mute: true,
-      maximize: false
+      playing: false,
+      muted: true,
+      maximized: false
     };
 
     const actualState = reducer(initialState, { type: MUTE_VIDEO });
@@ -78,15 +78,15 @@ describe('Reducer: Video', () => {
 
   it('should handle UNMUTE_VIDEO', () => {
     const initialState = {
-      play: false,
-      mute: true,
-      maximize: false
+      playing: false,
+      muted: true,
+      maximized: false
     };
 
     const expectedState = {
-      play: false,
-      mute: false,
-      maximize: false
+      playing: false,
+      muted: false,
+      maximized: false
     };
 
     const actualState = reducer(initialState, { type: UNMUTE_VIDEO });
@@ -96,15 +96,15 @@ describe('Reducer: Video', () => {
 
   it('should handle MAXIMIZE_VIDEO', () => {
     const initialState = {
-      play: false,
-      mute: false,
-      maximize: false
+      playing: false,
+      muted: false,
+      maximized: false
     };
 
     const expectedState = {
-      play: false,
-      mute: false,
-      maximize: true
+      playing: false,
+      muted: false,
+      maximized: true
     };
 
     const actualState = reducer(initialState, { type: MAXIMIZE_VIDEO });
@@ -114,15 +114,15 @@ describe('Reducer: Video', () => {
 
   it('should handle MINIMIZE_VIDEO', () => {
     const initialState = {
-      play: false,
-      mute: false,
-      maximize: true
+      playing: false,
+      muted: false,
+      maximized: true
     };
 
     const expectedState = {
-      play: false,
-      mute: false,
-      maximize: false
+      playing: false,
+      muted: false,
+      maximized: false
     };
 
     const actualState = reducer(initialState, { type: MINIMIZE_VIDEO });

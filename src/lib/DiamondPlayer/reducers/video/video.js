@@ -8,9 +8,9 @@ import {
 } from '../../constants';
 
 const initialState = {
-  play: false,
-  mute: false,
-  maximize: false
+  playing: false,
+  muted: false,
+  maximized: false
 };
 
 const video = (state = initialState, action) => {
@@ -18,37 +18,37 @@ const video = (state = initialState, action) => {
     case PLAY_VIDEO:
       return {
         ...state,
-        play: true
+        playing: true
       };
 
     case PAUSE_VIDEO:
       return {
         ...state,
-        play: false
+        playing: false
       };
 
     case MUTE_VIDEO:
       return {
         ...state,
-        mute: true
+        muted: true
       };
 
     case UNMUTE_VIDEO:
       return {
         ...state,
-        mute: false
+        muted: false
       };
 
     case MAXIMIZE_VIDEO:
       return {
         ...state,
-        maximize: true
+        maximized: true
       };
 
     case MINIMIZE_VIDEO:
       return {
         ...state,
-        maximize: false
+        maximized: false
       };
 
     default:
