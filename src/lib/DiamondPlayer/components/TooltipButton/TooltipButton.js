@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
+import { propTypes, defaultProps } from './types';
 import Tooltip from '../Tooltip';
 import Button from '../Button';
 
@@ -59,14 +59,7 @@ class TooltipButton extends PureComponent {
   }
 }
 
-TooltipButton.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
-  onClick: PropTypes.func
-};
-
-TooltipButton.defaultProps = {
-  onClick: undefined
-};
+TooltipButton.propTypes = propTypes;
+TooltipButton.defaultProps = defaultProps;
 
 export default TooltipButton;

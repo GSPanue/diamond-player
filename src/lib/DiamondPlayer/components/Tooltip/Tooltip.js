@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import { propTypes } from './types';
 import { Wrapper } from './styles';
 
 const Tooltip = ({ title, children, ...rest }) => (
@@ -9,10 +9,6 @@ const Tooltip = ({ title, children, ...rest }) => (
   </Wrapper>
 );
 
-Tooltip.propTypes = {
-  title: PropTypes.string.isRequired,
-  show: PropTypes.bool.isRequired,
-  children: PropTypes.element.isRequired
-};
+Tooltip.propTypes = propTypes;
 
 export default Tooltip;
