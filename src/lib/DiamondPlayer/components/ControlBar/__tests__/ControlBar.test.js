@@ -20,13 +20,13 @@ describe('Component: ControlBar', () => {
   it('should render a Play component', () => {
     const wrapper = shallow(<ControlBar />);
 
-    expect(wrapper.find('withContext(Play)')).toHaveLength(1);
+    expect(wrapper.find('Connect(Play)')).toHaveLength(1);
   });
 
   it('should render a Mute component', () => {
     const wrapper = shallow(<ControlBar />);
 
-    expect(wrapper.find('withContext(Mute)')).toHaveLength(1);
+    expect(wrapper.find('Connect(Mute)')).toHaveLength(1);
   });
 
   it('should render a Settings component', () => {
@@ -38,6 +38,6 @@ describe('Component: ControlBar', () => {
   it('should render a Maximize component', () => {
     const wrapper = shallow(<ControlBar />);
 
-    expect(wrapper.find('withContext(Maximize)')).toHaveLength(1);
+    expect(wrapper.find('Connect(Maximize)')).toHaveLength(1);
   });
 });

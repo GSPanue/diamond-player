@@ -1,24 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import { propTypes, defaultProps } from './types';
 
 const Source = (props) => (
   <source {...props} />
 );
 
-Source.propTypes = {
-  label: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  srcSet: PropTypes.string,
-  media: PropTypes.string,
-  sizes: PropTypes.string,
-  type: PropTypes.string
-};
-
-Source.defaultProps = {
-  srcSet: undefined,
-  media: undefined,
-  sizes: undefined,
-  type: undefined
-};
+Source.propTypes = propTypes;
+Source.defaultProps = defaultProps;
 
 export default Source;

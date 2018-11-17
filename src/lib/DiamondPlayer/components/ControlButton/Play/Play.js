@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import withContext from '../../withContext';
+import { propTypes } from './types';
 import { PlayIcon, PauseIcon } from './styles';
 import TooltipButton from '../../TooltipButton';
 
-export class Play extends Component {
+class Play extends Component {
   constructor() {
     super();
 
@@ -13,36 +12,33 @@ export class Play extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { context: { play: currentPlay } } = this.props;
-    const { context: { play: nextPlay } } = nextProps;
+    const { isPlaying: currentIsPlaying } = this.props;
+    const { isPlaying: nextIsPlaying } = nextProps;
 
-    return (currentPlay !== nextPlay);
+    return (currentIsPlaying !== nextIsPlaying);
   }
 
   /**
    * handleClick: Handles an onClick event.
    */
   handleClick() {
-    const { context } = this.props;
-    const { actions: { togglePlay } } = context;
+    const { isPlaying, playVideo, pauseVideo } = this.props;
 
-    togglePlay();
+    (isPlaying) ? pauseVideo() : playVideo();
   }
 
   render() {
-    const { context: { play: showPauseIcon } } = this.props;
-    const tooltipTitle = (showPauseIcon) ? 'Pause' : 'Play';
+    const { isPlaying } = this.props;
+    const tooltipTitle = (isPlaying) ? 'Pause' : 'Play';
 
     return (
       <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
-        {(showPauseIcon) ? <PauseIcon size="22" /> : <PlayIcon size="22" />}
+        {(isPlaying) ? <PauseIcon size="22" /> : <PlayIcon size="22" />}
       </TooltipButton>
     );
   }
 }
 
-Play.propTypes = {
-  context: PropTypes.object.isRequired
-};
+Play.propTypes = propTypes;
 
-export default withContext(Play);
+export default Play;

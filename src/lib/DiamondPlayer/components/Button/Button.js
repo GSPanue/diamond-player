@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
+import { propTypes, defaultProps } from './types';
 import { Wrapper } from './styles';
 
 class Button extends PureComponent {
@@ -55,17 +55,7 @@ class Button extends PureComponent {
   }
 }
 
-Button.propTypes = {
-  children: PropTypes.element.isRequired,
-  onClick: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func
-};
-
-Button.defaultProps = {
-  onClick: undefined,
-  onMouseEnter: undefined,
-  onMouseLeave: undefined
-};
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
 export default Button;
