@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Provider from './components/Provider';
+import { Provider } from 'react-redux';
+import store from './store';
+
 import { Wrapper } from './styles';
 import Video from './components/Video';
 import ControlBar from './components/ControlBar';
 
 const DiamondPlayer = ({ style, ...rest }) => (
-  <Provider>
+  <Provider store={store}>
     <Wrapper style={style}>
       <Video {...rest} />
       <ControlBar />
