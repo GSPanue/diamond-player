@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ErrorBoundary from './components/ErrorBoundary';
 import Provider from './components/Provider';
 import { Wrapper } from './styles';
 import Video from './components/Video';
 import ControlBar from './components/ControlBar';
 
 const DiamondPlayer = ({ style, ...rest }) => (
-  <ErrorBoundary>
-    <Provider>
-      <Wrapper style={style}>
-        <Video {...rest} />
-        <ControlBar />
-      </Wrapper>
-    </Provider>
-  </ErrorBoundary>
+  <Provider>
+    <Wrapper style={style}>
+      <Video {...rest} />
+      <ControlBar />
+    </Wrapper>
+  </Provider>
 );
 
 DiamondPlayer.propTypes = {
