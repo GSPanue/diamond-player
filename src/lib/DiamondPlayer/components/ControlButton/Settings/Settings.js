@@ -19,7 +19,7 @@ class Settings extends Component {
   render() {
     return (
       <TooltipButton title="Settings" onClick={this.handleClick}>
-        <SettingsIcon size="22" />
+        <SettingsIcon />
       </TooltipButton>
     );
   }

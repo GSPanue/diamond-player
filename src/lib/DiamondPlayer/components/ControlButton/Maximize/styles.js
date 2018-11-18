@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Maximize, Minimize } from 'react-feather';
+import { Maximize, Minimize } from '../../Icon';
 
 const MaximizeIcon = styled(Maximize)`
   display: block;

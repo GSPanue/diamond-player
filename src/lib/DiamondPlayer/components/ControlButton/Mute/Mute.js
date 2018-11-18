@@ -33,7 +33,7 @@ class Mute extends Component {
 
     return (
       <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
-        {(isMuted) ? <UnmuteIcon size="22" /> : <MuteIcon size="22" />}
+        {(isMuted) ? <UnmuteIcon /> : <MuteIcon />}
       </TooltipButton>
     );
   }

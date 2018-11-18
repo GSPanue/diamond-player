@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Volume2, VolumeX } from 'react-feather';
+import { Volume2, VolumeX } from '../../Icon';
 
 const MuteIcon = styled(Volume2)`
   display: block;
