@@ -6,7 +6,6 @@ const propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element)
   ]),
-  controls: PropTypes.bool,
   loop: PropTypes.bool,
   muted: PropTypes.bool,
   playsInline: PropTypes.bool,
@@ -22,7 +21,6 @@ const propTypes = {
 const defaultProps = {
   autoPlay: false,
   children: undefined,
-  controls: false,
   loop: false,
   muted: false,
   playsInline: false,
