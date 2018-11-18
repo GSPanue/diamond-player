@@ -6,7 +6,11 @@ import { Wrapper } from './styles';
 const Video = ({ controls, src, children, ...rest }) => {
   const hasChildren = (typeof children === 'object');
 
-  return (hasChildren) ? <Wrapper {...rest} controls>{children}</Wrapper> : <Wrapper {...rest} src={src} controls />;
+  if (hasChildren) {
+    return <Wrapper {...rest} controls={false}>{children}</Wrapper>;
+  }
+
+  return <Wrapper {...rest} src={src} controls={false} />;
 };
 
 Video.propTypes = propTypes;
