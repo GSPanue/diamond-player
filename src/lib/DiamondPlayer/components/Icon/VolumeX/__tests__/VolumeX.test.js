@@ -25,7 +25,7 @@ describe('Component: VolumeX', () => {
   it('should render two line tags', () => {
     const wrapper = shallow(<VolumeX />);
 
-    expect(wrapper.find('line')).toHaveLength(1);
+    expect(wrapper.find('line')).toHaveLength(2);
   });
 
   it('should have props for color and size', () => {
