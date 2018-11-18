@@ -43,11 +43,12 @@ class TooltipButton extends PureComponent {
   }
 
   render() {
-    const { state: { show }, props: { title, children } } = this;
+    const { state: { show }, props: { title, children, ...rest } } = this;
 
     return (
       <Tooltip title={title} show={show}>
         <Button
+          {...rest}
           onClick={this.handleClick}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}

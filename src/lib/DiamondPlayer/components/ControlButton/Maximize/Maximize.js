@@ -33,7 +33,7 @@ class Maximize extends Component {
 
     return (
       <TooltipButton title={tooltipTitle} onClick={this.handleClick}>
-        {(isMaximized) ? <MinimizeIcon size="22" /> : <MaximizeIcon size="22" />}
+        {(isMaximized) ? <MinimizeIcon /> : <MaximizeIcon />}
       </TooltipButton>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Tooltip from '..';
 import { Wrapper } from '../styles';
@@ -29,10 +29,11 @@ describe('Component: Tooltip', () => {
     expect(wrapper.find('div')).toHaveLength(1);
   });
 
-  it('should have props for title and show', () => {
-    const wrapper = shallow(<Tooltip {...minProps} />);
+  it('should have props for title, show, and children', () => {
+    const wrapper = mount(<Tooltip {...minProps} />);
 
-    expect(wrapper.find(Wrapper).props()['data-tooltip']).toBeDefined();
-    expect(wrapper.find(Wrapper).props().show).toBeDefined();
+    expect(wrapper.props().title).toBeDefined();
+    expect(wrapper.props().show).toBeDefined();
+    expect(wrapper.props().children).toBeDefined();
   });
 });

@@ -1,14 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Video from '..';
 import { Wrapper } from '../styles';
 
 describe('Component: Video', () => {
   const minProps = {
-    src: '',
     poster: '',
-    preload: 'none'
+    preload: 'none',
+    src: ''
   };
 
   it('should render without crashing', () => {
@@ -23,7 +23,7 @@ describe('Component: Video', () => {
     expect(wrapper.find(Wrapper)).toHaveLength(1);
   });
 
-  it('should have a src prop when children is not defined', () => {
+  it('should pass src as a prop to the video tag when children is not defined', () => {
     const wrapper = shallow(<Video {...minProps} />);
 
     expect(wrapper.props().src).toBeDefined();
@@ -36,17 +36,18 @@ describe('Component: Video', () => {
     expect(wrapper.find('div')).toHaveLength(1);
   });
 
-  it('should not have a src prop when children is defined', () => {
+  it('should not pass src as a prop to the video tag when children is defined', () => {
     const children = <div />;
     const wrapper = shallow(<Video {...minProps}>{children}</Video>);
 
     expect(wrapper.props().src).toBeUndefined();
   });
 
-  it('it should have props for autoPlay, loop, muted, playsInline, poster, preload, and src', () => {
-    const wrapper = shallow(<Video {...minProps} />);
+  it('should have props for autoPlay, children, loop, muted, playsInline, poster, preload, and src', () => {
+    const wrapper = mount(<Video {...minProps}><div /></Video>);
 
     expect(wrapper.props().autoPlay).toBeDefined();
+    expect(wrapper.props().children).toBeDefined();
     expect(wrapper.props().loop).toBeDefined();
     expect(wrapper.props().muted).toBeDefined();
     expect(wrapper.props().playsInline).toBeDefined();

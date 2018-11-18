@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Settings } from 'react-feather';
+import { Settings } from '../../Icon';
 
 const SettingsIcon = styled(Settings)`
   display: block;
