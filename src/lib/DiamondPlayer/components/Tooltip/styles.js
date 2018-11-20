@@ -1,39 +1,57 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  user-select: none;
+  position: relative;
+  display: block;
   
-  &::before, &::after {
-    position: absolute;
-    opacity: ${({ show }) => ((show) ? 1 : 0)};
-    transition: opacity 0.2s 0.05s ease;
+  &:hover::before, &:hover::after {
+    opacity: 1;
+    transition: opacity 0.2s 0.1s ease;
   }
   
-  &::before {
-    content: "";
+  &:hover::before {
+   transform: translate(${({ align }) => ((align === 'center') ? '-50%' : '0')}, 0) scale(1);
+  }
+  
+  &:hover::after {
+    transform: translate(-50%, 0) scale(1);
+  }
+  
+  &::before, &::after {
+    position: absolute; 
+    display: block;
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  &::after {
+    content: '';
+    left: 50%;
+    bottom: 100%;
+    height: 0;
+    width: 0;
+    margin-bottom: 5px;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4px solid #FFFFFF;
-    top: 25px;
     z-index: 3;
   }
   
-  &&:after {
+  &::before {
     content: attr(data-tooltip);
-    background: #FFFFFF;
-    top: 25px;
-    font-size: 13px;
-    border-radius: 3px;
-    box-shadow: 0 1px 2px rgba(0,0,0,.15);
-    color: #000000;
+    left: ${({ align }) => (((align === 'center') && '50%') || ((align === 'left') ? '0' : 'auto'))};
+    ${({ align }) => (align === 'right') && 'right: 0'};
+    bottom: 100%;
     padding: 5px 7.5px;
-    transform: translateY(-100%);
-    white-space: nowrap;
-    z-index: 2;
+    margin-bottom: 9px;
+    border-radius: 3px;
+    font-size: 13px;
     font-weight: bold;
+    white-space: nowrap;
+    background: #FFFFFF;
+    color: #000000;
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    z-index: 2;
   }
 `;
 

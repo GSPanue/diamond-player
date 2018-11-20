@@ -7,7 +7,6 @@ import { Wrapper } from '../styles';
 describe('Component: Tooltip', () => {
   const minProps = {
     title: 'title',
-    show: false,
     children: <div />
   };
 
@@ -29,11 +28,11 @@ describe('Component: Tooltip', () => {
     expect(wrapper.find('div')).toHaveLength(1);
   });
 
-  it('should have props for title, show, and children', () => {
+  it('should have props for title, align, and children', () => {
     const wrapper = mount(<Tooltip {...minProps} />);
 
     expect(wrapper.props().title).toBeDefined();
-    expect(wrapper.props().show).toBeDefined();
+    expect(wrapper.props().align).toBeDefined();
     expect(wrapper.props().children).toBeDefined();
   });
 });

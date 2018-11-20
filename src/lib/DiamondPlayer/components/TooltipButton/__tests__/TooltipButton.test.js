@@ -34,23 +34,27 @@ describe('Component: TooltipButton', () => {
     expect(wrapper.find('div')).toHaveLength(1);
   });
 
-  it('should have the correct initial state', () => {
-    const wrapper = shallow(<TooltipButton {...minProps} />);
-
-    const expectedState = {
-      show: false
-    };
-
-    const actualState = wrapper.state();
-
-    expect(expectedState).toEqual(actualState);
-  });
-
-  it('should pass title and show to the Tooltip component', () => {
+  it('should pass title and align to the Tooltip component', () => {
     const wrapper = shallow(<TooltipButton {...minProps} />);
 
     expect(wrapper.find('Tooltip').props().title).toBeDefined();
-    expect(wrapper.find('Tooltip').props().show).toBeDefined();
+    expect(wrapper.find('Tooltip').props().align).toBeDefined();
+  });
+
+  it('should pass onClick to the Button component', () => {
+    const wrapper = shallow(<TooltipButton {...minProps} />);
+
+    expect(wrapper.find('Button').props().onClick).toBeDefined();
+  });
+
+  it('should have props for title, align, children, and onClick', () => {
+    const wrapper = shallow(<TooltipButton {...minProps} />);
+    const instance = wrapper.instance();
+
+    expect(instance.props.title).toBeDefined();
+    expect(instance.props.align).toBeDefined();
+    expect(instance.props.children).toBeDefined();
+    expect(instance.props.onClick).toBeDefined();
   });
 
   it('should call handleClick on a click event', () => {
@@ -59,24 +63,6 @@ describe('Component: TooltipButton', () => {
 
     expect(spy).toHaveBeenCalledTimes(0);
     wrapper.find('Button').props().onClick();
-    expect(spy).toHaveBeenCalledTimes(1);
-  });
-
-  it('should call handleMouseEnter on a mouseenter event', () => {
-    const spy = jest.spyOn(TooltipButton.prototype, 'handleMouseEnter');
-    const wrapper = shallow(<TooltipButton {...minProps} />);
-
-    expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('Button').props().onMouseEnter();
-    expect(spy).toHaveBeenCalledTimes(1);
-  });
-
-  it('should call handleMouseLeave on a mouseleave event', () => {
-    const spy = jest.spyOn(TooltipButton.prototype, 'handleMouseLeave');
-    const wrapper = shallow(<TooltipButton {...minProps} />);
-
-    expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('Button').props().onMouseLeave();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -89,30 +75,6 @@ describe('Component: TooltipButton', () => {
       expect(onClick).toHaveBeenCalledTimes(0);
       instance.handleClick();
       expect(onClick).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('Method: handleMouseEnter', () => {
-    it('should set show to true', () => {
-      const wrapper = shallow(<TooltipButton {...minProps} />);
-      const instance = wrapper.instance();
-
-      expect(wrapper.state().show).toEqual(false);
-      instance.handleMouseEnter();
-      expect(wrapper.state().show).toEqual(true);
-    });
-  });
-
-  describe('Method: handleMouseLeave', () => {
-    it('should set show to false', () => {
-      const wrapper = shallow(<TooltipButton {...minProps} />);
-      const instance = wrapper.instance();
-
-      wrapper.setState({ show: true });
-
-      expect(wrapper.state().show).toEqual(true);
-      instance.handleMouseLeave();
-      expect(wrapper.state().show).toEqual(false);
     });
   });
 });
