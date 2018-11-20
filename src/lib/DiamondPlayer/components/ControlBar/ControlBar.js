@@ -1,14 +1,18 @@
 import React from 'react';
 
-import { Wrapper } from './styles';
+import { Wrapper, LeftControls, RightControls } from './styles';
 import { Play, Mute, Settings, Maximize } from '../ControlButton';
 
 const ControlBar = () => (
   <Wrapper>
-    <Play />
-    <Mute />
-    <Settings />
-    <Maximize />
+    <LeftControls>
+      <Play />
+      <Mute />
+    </LeftControls>
+    <RightControls>
+      <Settings />
+      <Maximize />
+    </RightControls>
   </Wrapper>
 );
 
