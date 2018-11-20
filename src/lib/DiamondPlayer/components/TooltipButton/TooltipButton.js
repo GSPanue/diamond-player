@@ -9,12 +9,6 @@ class TooltipButton extends PureComponent {
     super(props);
 
     this.handleClick = (props.onClick) && this.handleClick.bind(this);
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-
-    this.state = {
-      show: false
-    };
   }
 
   /**
@@ -26,33 +20,12 @@ class TooltipButton extends PureComponent {
     callback();
   }
 
-  /**
-   * handleMouseEnter: Handles an onMouseEnter event.
-   */
-  handleMouseEnter() {
-    // Show tooltip
-    this.setState({ show: true });
-  }
-
-  /**
-   * handleMouseLeave: Handles an onMouseLeave event.
-   */
-  handleMouseLeave() {
-    // Hide tooltip
-    this.setState({ show: false });
-  }
-
   render() {
-    const { state: { show }, props: { title, children, ...rest } } = this;
+    const { props: { title, align, children, ...rest } } = this;
 
     return (
-      <Tooltip title={title} show={show}>
-        <Button
-          {...rest}
-          onClick={this.handleClick}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-        >
+      <Tooltip title={title} align={align}>
+        <Button {...rest} onClick={this.handleClick}>
           {children}
         </Button>
       </Tooltip>
