@@ -14,20 +14,13 @@ const Wrapper = styled.div`
   user-select: none;
 `;
 
-const LeftControls = styled.div`
+const Section = styled.div`
   width: 50%;
   display: flex;
-  justify-content: flex-start;
-`;
-
-const RightControls = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
+  justify-content: ${({ align }) => ((align === 'left') ? 'flex-start' : 'flex-end')};
 `;
 
 export {
   Wrapper,
-  LeftControls,
-  RightControls
+  Section
 };
