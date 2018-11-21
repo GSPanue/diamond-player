@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import DiamondPlayer from '..';
+import DiamondPlayer from '../DiamondPlayer';
 import { Wrapper } from '../styles';
 
 describe('Component: DiamondPlayer', () => {
