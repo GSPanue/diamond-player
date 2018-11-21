@@ -1,15 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import { GlobalStyle, Wrapper } from './styles';
+import { Wrapper } from './styles';
 import DiamondPlayer from '..';
 
 const App = () => (
-  <Fragment>
-    <GlobalStyle />
-    <Wrapper>
-      <DiamondPlayer src="" />
-    </Wrapper>
-  </Fragment>
+  <Wrapper>
+    <DiamondPlayer src="" />
+  </Wrapper>
 );
 
 export default App;
