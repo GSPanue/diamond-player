@@ -1,5 +1,7 @@
 import { memo } from 'react';
 
-import DiamondPlayer from './DiamondPlayer';
+const DiamondPlayer = memo(require('./DiamondPlayer').default);
 
-export default memo(DiamondPlayer);
+DiamondPlayer.displayName = 'DiamondPlayer';
+
+export default DiamondPlayer;
