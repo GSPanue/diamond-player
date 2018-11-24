@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 
-import { propTypes, defaultProps } from './types';
+import { propTypes } from './types';
 import { Wrapper } from './styles';
 
 class Button extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
-    this.handleClick = (props.onClick) && this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   /**
@@ -31,6 +31,5 @@ class Button extends PureComponent {
 }
 
 Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
 
 export default Button;
