@@ -10,11 +10,11 @@ const Wrapper = styled.div`
   }
   
   &:hover::before {
-   transform: translate(${({ align }) => ((align === 'center') ? '-50%' : '0')}, 0) scale(1);
+    transform: translate(${({ align }) => ((align === 'center') ? '-50%' : '0')},0) scale(1);
   }
   
   &:hover::after {
-    transform: translate(-50%, 0) scale(1);
+    transform: translate(-50%,0) scale(1);
   }
   
   &::before, &::after {
@@ -22,19 +22,6 @@ const Wrapper = styled.div`
     display: block;
     pointer-events: none;
     opacity: 0;
-  }
-  
-  &::after {
-    content: '';
-    left: 50%;
-    bottom: 100%;
-    height: 0;
-    width: 0;
-    margin-bottom: 5px;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid #FFFFFF;
-    z-index: 3;
   }
   
   &::before {
@@ -52,6 +39,19 @@ const Wrapper = styled.div`
     color: #000000;
     box-shadow: 0 1px 2px rgba(0,0,0,.15);
     z-index: 2;
+  }
+  
+  &::after {
+    content: '';
+    left: 50%;
+    bottom: 100%;
+    height: 0;
+    width: 0;
+    margin-bottom: 5px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #FFFFFF;
+    z-index: 3;
   }
 `;
 
