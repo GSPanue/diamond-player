@@ -31,7 +31,6 @@ const Wrapper = styled.div`
     bottom: 100%;
     padding: 5px 7.5px;
     margin-bottom: 9px;
-    border-radius: 3px;
     font-size: 13px;
     font-weight: bold;
     white-space: nowrap;
