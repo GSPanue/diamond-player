@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { propTypes, defaultProps } from './types';
-import { Input } from './styles';
+import { Wrapper, Input, Trail } from './styles';
 
 class Slider extends Component {
   constructor() {
@@ -25,17 +25,20 @@ class Slider extends Component {
   }
 
   render() {
-    const { value } = this.props;
+    const { value, step } = this.props;
 
     return (
-      <Input
-        type="range"
-        min="0"
-        max="100"
-        step="0.01"
-        value={value}
-        onChange={this.handleChange}
-      />
+      <Wrapper>
+        <Input
+          type="range"
+          min="0"
+          max="100"
+          step={step}
+          value={value}
+          onChange={this.handleChange}
+        />
+        <Trail trailWidth={value} />
+      </Wrapper>
     );
   }
 }

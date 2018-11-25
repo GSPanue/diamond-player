@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Slider from '..';
-import { Input } from '../styles';
+import { Wrapper, Input, Trail } from '../styles';
 
 describe('Component: Slider', () => {
   const minProps = {
@@ -15,17 +15,31 @@ describe('Component: Slider', () => {
     expect(wrapper).toHaveLength(1);
   });
 
+  it('should render a Wrapper component', () => {
+    const wrapper = shallow(<Slider {...minProps} />);
+
+    expect(wrapper.find(Wrapper)).toHaveLength(1);
+  });
+
   it('should render a Input component', () => {
     const wrapper = shallow(<Slider {...minProps} />);
 
     expect(wrapper.find(Input)).toHaveLength(1);
   });
 
-  it('should have props for value and onChange', () => {
+  it('should render a Trail component', () => {
     const wrapper = shallow(<Slider {...minProps} />);
 
-    expect(wrapper.props().value).toBeDefined();
-    expect(wrapper.props().onChange).toBeDefined();
+    expect(wrapper.find(Trail)).toHaveLength(1);
+  });
+
+  it('should have props for value and onChange', () => {
+    const wrapper = shallow(<Slider {...minProps} />);
+    const instance = wrapper.instance();
+
+    expect(instance.props.value).toBeDefined();
+    expect(instance.props.step).toBeDefined();
+    expect(instance.props.onChange).toBeDefined();
   });
 
   it('should call handleChange on a change event', () => {

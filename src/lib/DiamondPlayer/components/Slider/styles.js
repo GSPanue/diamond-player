@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  position: relative;
+  display: flex;
+`;
+
 const Input = styled.input`
   appearance: none;
   width: 100%;
@@ -7,6 +12,7 @@ const Input = styled.input`
   padding: 0;
   margin: 0;
   outline: none;
+  z-index: 3;
   background: rgba(255,255,255,.10);
   
   &::-webkit-slider-thumb {
@@ -20,6 +26,15 @@ const Input = styled.input`
   }
 `;
 
+const Trail = styled.div`
+  width: ${({ trailWidth }) => trailWidth}%;
+  height: 3px;
+  position: absolute;
+  background: #FFFFFF;
+`;
+
 export {
-  Input
+  Wrapper,
+  Input,
+  Trail
 };
