@@ -12,7 +12,7 @@ class TooltipButton extends PureComponent {
   }
 
   /**
-   * handleClick: Handles an onClick event.
+   * handleClick: Handles a click event.
    */
   handleClick() {
     const { onClick: callback } = this.props;

@@ -19,7 +19,7 @@ class Mute extends Component {
   }
 
   /**
-   * handleClick: Handles an onClick event.
+   * handleClick: Handles a click event.
    */
   handleClick() {
     const { isMuted, muteVideo, unmuteVideo } = this.props;
