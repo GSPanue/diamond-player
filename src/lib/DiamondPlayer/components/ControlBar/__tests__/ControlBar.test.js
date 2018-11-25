@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import ControlBar from '..';
-import { Wrapper, Section } from '../styles';
+import { Wrapper, Section, Group } from '../styles';
 
 describe('Component: ControlBar', () => {
   it('should render without crashing', () => {
@@ -23,6 +23,12 @@ describe('Component: ControlBar', () => {
     expect(wrapper.find(Section)).toHaveLength(2);
   });
 
+  it('should render a Group component', () => {
+    const wrapper = shallow(<ControlBar />);
+
+    expect(wrapper.find(Group)).toHaveLength(1);
+  });
+
   it('should render a Play component', () => {
     const wrapper = shallow(<ControlBar />);
 
@@ -33,6 +39,12 @@ describe('Component: ControlBar', () => {
     const wrapper = shallow(<ControlBar />);
 
     expect(wrapper.find('Connect(Mute)')).toHaveLength(1);
+  });
+
+  it('should render a Volume component', () => {
+    const wrapper = shallow(<ControlBar />);
+
+    expect(wrapper.find('Connect(Volume)')).toHaveLength(1);
   });
 
   it('should render a Settings component', () => {

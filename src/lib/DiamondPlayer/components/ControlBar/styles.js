@@ -20,7 +20,13 @@ const Section = styled.div`
   justify-content: ${({ align }) => ((align === 'left') ? 'flex-start' : 'flex-end')};
 `;
 
+const Group = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export {
   Wrapper,
-  Section
+  Section,
+  Group
 };
