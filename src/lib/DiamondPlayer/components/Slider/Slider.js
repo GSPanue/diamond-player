@@ -17,6 +17,9 @@ class Slider extends Component {
     return (currentValue !== nextValue);
   }
 
+  /**
+   * handleChange: Handles a change event.
+   */
   handleChange({ target }) {
     const { value } = target;
     const { onChange: callback } = this.props;
