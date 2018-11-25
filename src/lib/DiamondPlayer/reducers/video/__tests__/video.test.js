@@ -154,7 +154,7 @@ describe('Reducer: Video', () => {
 
     const expectedState = {
       playing: false,
-      muted: false,
+      muted: true,
       maximized: false,
       volume: '0'
     };

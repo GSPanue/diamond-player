@@ -56,7 +56,8 @@ const video = (state = initialState, action) => {
     case ADJUST_VOLUME:
       return {
         ...state,
-        volume: action.payload
+        volume: action.payload,
+        muted: !(+action.payload)
       };
 
     default:
