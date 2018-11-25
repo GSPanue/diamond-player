@@ -4,7 +4,8 @@ import {
   MUTE_VIDEO,
   UNMUTE_VIDEO,
   MAXIMIZE_VIDEO,
-  MINIMIZE_VIDEO
+  MINIMIZE_VIDEO,
+  ADJUST_VOLUME
 } from '../../constants';
 
 const playVideo = () => ({
@@ -31,11 +32,17 @@ const minimizeVideo = () => ({
   type: MINIMIZE_VIDEO
 });
 
+const adjustVolume = (value) => ({
+  type: ADJUST_VOLUME,
+  payload: value
+});
+
 export {
   playVideo,
   pauseVideo,
   muteVideo,
   unmuteVideo,
   maximizeVideo,
-  minimizeVideo
+  minimizeVideo,
+  adjustVolume
 };
