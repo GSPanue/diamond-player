@@ -4,7 +4,8 @@ import { adjustVolume } from '../../actions';
 import Volume from './Volume';
 
 const mapStateToProps = (state) => ({
-  value: state.video.volume
+  value: state.video.volume,
+  isMuted: state.video.muted
 });
 
 const mapDispatchToProps = (dispatch) => ({

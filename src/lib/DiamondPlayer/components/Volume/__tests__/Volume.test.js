@@ -7,6 +7,7 @@ import { Wrapper } from '../styles';
 describe('Component: Volume', () => {
   const minProps = {
     value: '1',
+    isMuted: false,
     adjustVolume: () => {}
   };
 
@@ -28,11 +29,24 @@ describe('Component: Volume', () => {
     expect(wrapper.find('Slider')).toHaveLength(1);
   });
 
-  it('should have props for value and adjustVolume', () => {
+  it('should pass a value of "0" to the Slider component when isMuted is true', () => {
+    const wrapper = shallow(<Volume {...minProps} isMuted />);
+
+    expect(wrapper.find('Slider').props().value).toEqual('0');
+  });
+
+  it('should pass value to the Slider component when isMuted is false', () => {
+    const wrapper = shallow(<Volume {...minProps} />);
+
+    expect(wrapper.find('Slider').props().value).toEqual('1');
+  });
+
+  it('should have props for value, isMuted, and adjustVolume', () => {
     const wrapper = shallow(<Volume {...minProps} />);
     const instance = wrapper.instance();
 
     expect(instance.props.value).toBeDefined();
+    expect(instance.props.isMuted).toBeDefined();
     expect(instance.props.adjustVolume).toBeDefined();
   });
 
@@ -51,7 +65,8 @@ describe('Component: Volume', () => {
       const instance = wrapper.instance();
 
       const nextProps = {
-        value: '1'
+        value: '1',
+        isMuted: false
       };
 
       expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
@@ -62,7 +77,32 @@ describe('Component: Volume', () => {
       const instance = wrapper.instance();
 
       const nextProps = {
-        value: '0'
+        value: '0',
+        isMuted: false
+      };
+
+      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+    });
+
+    it('should return false when isMuted has not changed', () => {
+      const wrapper = shallow(<Volume {...minProps} />);
+      const instance = wrapper.instance();
+
+      const nextProps = {
+        value: '1',
+        isMuted: false
+      };
+
+      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+    });
+
+    it('should return true when isMuted has changed', () => {
+      const wrapper = shallow(<Volume {...minProps} />);
+      const instance = wrapper.instance();
+
+      const nextProps = {
+        value: '1',
+        isMuted: true
       };
 
       expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
@@ -70,17 +110,7 @@ describe('Component: Volume', () => {
   });
 
   describe('Method: handleChange', () => {
-    it('should not call adjustVolume when shouldAdjustVolume is false', () => {
-      const adjustVolume = jest.fn();
-      const wrapper = shallow(<Volume {...minProps} adjustVolume={adjustVolume} />);
-      const instance = wrapper.instance();
-
-      expect(adjustVolume).toHaveBeenCalledTimes(0);
-      instance.handleChange('1');
-      expect(adjustVolume).toHaveBeenCalledTimes(0);
-    });
-
-    it('should call adjustVolume when shouldAdjustVolume is true', () => {
+    it('should call adjustVolume', () => {
       const adjustVolume = jest.fn();
       const wrapper = shallow(<Volume {...minProps} adjustVolume={adjustVolume} />);
       const instance = wrapper.instance();

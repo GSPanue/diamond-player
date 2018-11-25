@@ -12,30 +12,30 @@ class Volume extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { value: currentValue } = this.props;
-    const { value: nextValue } = nextProps;
+    const { value: currentValue, isMuted: currentIsMuted } = this.props;
+    const { value: nextValue, isMuted: nextIsMuted } = nextProps;
 
-    return (currentValue !== nextValue);
+    return ((currentValue !== nextValue) || (currentIsMuted !== nextIsMuted));
   }
 
   /**
    * handleChange: Handles a change event.
    */
-  handleChange(nextValue) {
-    const { value: currentValue, adjustVolume } = this.props;
-    const shouldAdjustVolume = (currentValue !== nextValue);
+  handleChange(value) {
+    const { adjustVolume } = this.props;
 
-    if (shouldAdjustVolume) {
-      adjustVolume(nextValue);
-    }
+    adjustVolume(value);
   }
 
   render() {
-    const { value } = this.props;
+    const { value, isMuted } = this.props;
 
     return (
       <Wrapper>
-        <Slider value={value} onChange={this.handleChange} />
+        <Slider
+          value={(isMuted) ? '0' : value}
+          onChange={this.handleChange}
+        />
       </Wrapper>
     );
   }
