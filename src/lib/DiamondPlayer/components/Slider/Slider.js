@@ -32,12 +32,12 @@ class Slider extends Component {
         <Input
           type="range"
           min="0"
-          max="100"
+          max="1"
           step={step}
           value={value}
           onChange={this.handleChange}
         />
-        <Trail trailWidth={value} />
+        <Trail trail={value} />
       </Wrapper>
     );
   }
