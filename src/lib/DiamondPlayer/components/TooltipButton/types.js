@@ -8,12 +8,11 @@ const propTypes = {
     'right'
   ]),
   children: PropTypes.element.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func.isRequired
 };
 
 const defaultProps = {
-  align: 'center',
-  onClick: undefined
+  align: 'center'
 };
 
 export {
