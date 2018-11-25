@@ -15,6 +15,7 @@ const Input = styled.input`
   outline: none;
   z-index: 3;
   background: rgba(255,255,255,.10);
+  cursor: pointer;
   
   &::-webkit-slider-thumb {
     appearance: none;
