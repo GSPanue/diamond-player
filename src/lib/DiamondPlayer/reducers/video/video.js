@@ -4,13 +4,15 @@ import {
   MUTE_VIDEO,
   UNMUTE_VIDEO,
   MAXIMIZE_VIDEO,
-  MINIMIZE_VIDEO
+  MINIMIZE_VIDEO,
+  ADJUST_VOLUME
 } from '../../constants';
 
 const initialState = {
   playing: false,
   muted: false,
-  maximized: false
+  maximized: false,
+  volume: '0.5'
 };
 
 const video = (state = initialState, action) => {
@@ -49,6 +51,13 @@ const video = (state = initialState, action) => {
       return {
         ...state,
         maximized: false
+      };
+
+    case ADJUST_VOLUME:
+      return {
+        ...state,
+        volume: action.payload,
+        muted: !(+action.payload)
       };
 
     default:

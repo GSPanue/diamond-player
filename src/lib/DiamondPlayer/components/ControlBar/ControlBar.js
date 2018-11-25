@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { Wrapper, Section } from './styles';
+import { Wrapper, Section, Group } from './styles';
 import { Play, Mute, Settings, Maximize } from '../ControlButton';
+import Volume from '../Volume';
 
 const ControlBar = () => (
   <Wrapper>
     <Section align="left">
       <Play />
-      <Mute />
+      <Group>
+        <Mute />
+        <Volume />
+      </Group>
     </Section>
     <Section align="right">
       <Settings />

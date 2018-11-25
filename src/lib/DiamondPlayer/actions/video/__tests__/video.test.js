@@ -4,7 +4,8 @@ import {
   MUTE_VIDEO,
   UNMUTE_VIDEO,
   MAXIMIZE_VIDEO,
-  MINIMIZE_VIDEO
+  MINIMIZE_VIDEO,
+  ADJUST_VOLUME
 } from '../../../constants';
 
 import * as actions from '..';
@@ -66,6 +67,17 @@ describe('Actions: Video', () => {
     };
 
     const actualAction = actions.minimizeVideo();
+
+    expect(expectedAction).toEqual(actualAction);
+  });
+
+  it('should create an action to adjust the volume', () => {
+    const expectedAction = {
+      type: ADJUST_VOLUME,
+      payload: '0'
+    };
+
+    const actualAction = actions.adjustVolume('0');
 
     expect(expectedAction).toEqual(actualAction);
   });

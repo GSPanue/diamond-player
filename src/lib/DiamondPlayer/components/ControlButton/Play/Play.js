@@ -19,7 +19,7 @@ class Play extends Component {
   }
 
   /**
-   * handleClick: Handles an onClick event.
+   * handleClick: Handles a click event.
    */
   handleClick() {
     const { isPlaying, playVideo, pauseVideo } = this.props;

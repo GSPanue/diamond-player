@@ -19,7 +19,7 @@ class Maximize extends Component {
   }
 
   /**
-   * handleClick: Handles an onClick event.
+   * handleClick: Handles a click event.
    */
   handleClick() {
     const { isMaximized, maximizeVideo, minimizeVideo } = this.props;

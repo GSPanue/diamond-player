@@ -5,14 +5,14 @@ import Tooltip from '../Tooltip';
 import Button from '../Button';
 
 class TooltipButton extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
-    this.handleClick = (props.onClick) && this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   /**
-   * handleClick: Handles an onClick event.
+   * handleClick: Handles a click event.
    */
   handleClick() {
     const { onClick: callback } = this.props;
