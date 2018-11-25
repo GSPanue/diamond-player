@@ -29,7 +29,7 @@ const Input = styled.input`
 `;
 
 const Trail = styled.div`
-  width: ${({ trail }) => trail * 100}%;
+  width: ${({ trail }) => trail * 98}%;
   height: 3px;
   position: absolute;
   background: #FFFFFF;
