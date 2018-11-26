@@ -5,7 +5,9 @@ import {
   UNMUTE_VIDEO,
   MAXIMIZE_VIDEO,
   MINIMIZE_VIDEO,
-  ADJUST_VOLUME
+  ADJUST_VOLUME,
+  ADJUST_CURRENT_TIME,
+  ADJUST_DURATION
 } from '../../../constants';
 
 import reducer from '..';
@@ -16,7 +18,9 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(undefined, {});
@@ -29,14 +33,18 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const expectedState = {
       playing: true,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(initialState, { type: PLAY_VIDEO });
@@ -49,14 +57,18 @@ describe('Reducer: Video', () => {
       playing: true,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const expectedState = {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(initialState, { type: PAUSE_VIDEO });
@@ -69,14 +81,18 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const expectedState = {
       playing: false,
       muted: true,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(initialState, { type: MUTE_VIDEO });
@@ -89,14 +105,18 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: true,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const expectedState = {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(initialState, { type: UNMUTE_VIDEO });
@@ -109,14 +129,18 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const expectedState = {
       playing: false,
       muted: false,
       maximized: true,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(initialState, { type: MAXIMIZE_VIDEO });
@@ -129,14 +153,18 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: false,
       maximized: true,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const expectedState = {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(initialState, { type: MINIMIZE_VIDEO });
@@ -149,19 +177,77 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5'
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const expectedState = {
       playing: false,
       muted: true,
       maximized: false,
-      volume: '0'
+      volume: '0',
+      currentTime: '0:00',
+      duration: '0:00'
     };
 
     const actualState = reducer(initialState, {
       type: ADJUST_VOLUME,
       payload: '0'
+    });
+
+    expect(expectedState).toEqual(actualState);
+  });
+
+  it('should handle ADJUST_CURRENT_TIME', () => {
+    const initialState = {
+      playing: false,
+      muted: false,
+      maximized: false,
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
+    };
+
+    const expectedState = {
+      playing: false,
+      muted: false,
+      maximized: false,
+      volume: '0.5',
+      currentTime: '1:00',
+      duration: '0:00'
+    };
+
+    const actualState = reducer(initialState, {
+      type: ADJUST_CURRENT_TIME,
+      payload: '1:00'
+    });
+
+    expect(expectedState).toEqual(actualState);
+  });
+
+  it('should handle ADJUST_DURATION', () => {
+    const initialState = {
+      playing: false,
+      muted: false,
+      maximized: false,
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '0:00'
+    };
+
+    const expectedState = {
+      playing: false,
+      muted: false,
+      maximized: false,
+      volume: '0.5',
+      currentTime: '0:00',
+      duration: '1:00'
+    };
+
+    const actualState = reducer(initialState, {
+      type: ADJUST_DURATION,
+      payload: '1:00'
     });
 
     expect(expectedState).toEqual(actualState);
