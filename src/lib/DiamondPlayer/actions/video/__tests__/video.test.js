@@ -5,7 +5,9 @@ import {
   UNMUTE_VIDEO,
   MAXIMIZE_VIDEO,
   MINIMIZE_VIDEO,
-  ADJUST_VOLUME
+  ADJUST_VOLUME,
+  ADJUST_CURRENT_TIME,
+  ADJUST_DURATION
 } from '../../../constants';
 
 import * as actions from '..';
@@ -78,6 +80,28 @@ describe('Actions: Video', () => {
     };
 
     const actualAction = actions.adjustVolume('0');
+
+    expect(expectedAction).toEqual(actualAction);
+  });
+
+  it('should create an action to adjust the current time', () => {
+    const expectedAction = {
+      type: ADJUST_CURRENT_TIME,
+      payload: '1:00'
+    };
+
+    const actualAction = actions.adjustCurrentTime('1:00');
+
+    expect(expectedAction).toEqual(actualAction);
+  });
+
+  it('should create an action to adjust the duration', () => {
+    const expectedAction = {
+      type: ADJUST_DURATION,
+      payload: '1:00'
+    };
+
+    const actualAction = actions.adjustDuration('1:00');
 
     expect(expectedAction).toEqual(actualAction);
   });

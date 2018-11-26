@@ -5,7 +5,9 @@ import {
   UNMUTE_VIDEO,
   MAXIMIZE_VIDEO,
   MINIMIZE_VIDEO,
-  ADJUST_VOLUME
+  ADJUST_VOLUME,
+  ADJUST_CURRENT_TIME,
+  ADJUST_DURATION
 } from '../../constants';
 
 const playVideo = () => ({
@@ -37,6 +39,16 @@ const adjustVolume = (value) => ({
   payload: value
 });
 
+const adjustCurrentTime = (time) => ({
+  type: ADJUST_CURRENT_TIME,
+  payload: time
+});
+
+const adjustDuration = (duration) => ({
+  type: ADJUST_DURATION,
+  payload: duration
+});
+
 export {
   playVideo,
   pauseVideo,
@@ -44,5 +56,7 @@ export {
   unmuteVideo,
   maximizeVideo,
   minimizeVideo,
-  adjustVolume
+  adjustVolume,
+  adjustCurrentTime,
+  adjustDuration
 };
