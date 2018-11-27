@@ -7,11 +7,16 @@ const propTypes = {
     'center',
     'right'
   ]),
+  spacing: PropTypes.oneOf([
+    'normal',
+    'large'
+  ]),
   children: PropTypes.element.isRequired
 };
 
 const defaultProps = {
-  align: 'center'
+  align: 'center',
+  spacing: 'normal'
 };
 
 export {

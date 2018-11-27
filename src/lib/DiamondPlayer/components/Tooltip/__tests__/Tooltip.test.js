@@ -33,6 +33,7 @@ describe('Component: Tooltip', () => {
 
     expect(wrapper.props().title).toBeDefined();
     expect(wrapper.props().align).toBeDefined();
+    expect(wrapper.props().spacing).toBeDefined();
     expect(wrapper.props().children).toBeDefined();
   });
 });
