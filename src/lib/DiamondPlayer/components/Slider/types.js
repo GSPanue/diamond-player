@@ -1,12 +1,8 @@
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string, PropTypes.number
-  ]),
-  step: PropTypes.oneOfType([
-    PropTypes.string, PropTypes.number
-  ]),
+  value: PropTypes.string,
+  step: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };
 
