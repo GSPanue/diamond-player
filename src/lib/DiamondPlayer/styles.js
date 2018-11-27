@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   height: 100%;
   color: #FFFFFF;
   background: #000000;
+  overflow: hidden;
 `;
 
 const InnerWrapper = styled.div`
