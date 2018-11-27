@@ -8,6 +8,7 @@ const Wrapper = styled.div`
 
 const Section = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const Group = styled.div`
