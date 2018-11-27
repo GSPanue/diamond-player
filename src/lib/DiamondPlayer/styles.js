@@ -15,7 +15,7 @@ const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 35px 15px 10px;
+  padding: 35px 15px 6px;
   left: 0;
   right: 0;
   bottom: 0;
