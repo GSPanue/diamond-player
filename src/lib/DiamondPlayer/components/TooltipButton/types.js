@@ -7,7 +7,7 @@ const propTypes = {
     'center',
     'right'
   ]),
-  spacing: PropTypes.oneOf([
+  separation: PropTypes.oneOf([
     'normal',
     'large'
   ]),
@@ -17,7 +17,7 @@ const propTypes = {
 
 const defaultProps = {
   align: 'center',
-  spacing: 'normal'
+  separation: 'normal'
 };
 
 export {

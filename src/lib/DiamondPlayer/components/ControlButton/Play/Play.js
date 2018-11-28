@@ -32,7 +32,7 @@ class Play extends Component {
     const tooltipTitle = (isPlaying) ? 'Pause' : 'Play';
 
     return (
-      <TooltipButton title={tooltipTitle} align="left" spacing="large" onClick={this.handleClick}>
+      <TooltipButton title={tooltipTitle} align="left" separation="large" onClick={this.handleClick}>
         {(isPlaying) ? <PauseIcon /> : <PlayIcon />}
       </TooltipButton>
     );

@@ -32,7 +32,7 @@ class Mute extends Component {
     const tooltipTitle = (isMuted) ? 'Unmute' : 'Mute';
 
     return (
-      <TooltipButton title={tooltipTitle} spacing="large" onClick={this.handleClick}>
+      <TooltipButton title={tooltipTitle} separation="large" onClick={this.handleClick}>
         {(isMuted) ? <UnmuteIcon /> : <MuteIcon />}
       </TooltipButton>
     );

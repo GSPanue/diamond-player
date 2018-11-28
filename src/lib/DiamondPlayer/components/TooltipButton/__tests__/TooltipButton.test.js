@@ -53,7 +53,7 @@ describe('Component: TooltipButton', () => {
 
     expect(instance.props.title).toBeDefined();
     expect(instance.props.align).toBeDefined();
-    expect(instance.props.spacing).toBeDefined();
+    expect(instance.props.separation).toBeDefined();
     expect(instance.props.children).toBeDefined();
     expect(instance.props.onClick).toBeDefined();
   });

@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     ${({ align }) => (align === 'right') && 'right: 0'};
     bottom: 100%;
     padding: 5px 7.5px;
-    margin-bottom: ${({ spacing }) => ((spacing === 'large') ? '22px' : '9px')};
+    margin-bottom: ${({ separation }) => ((separation === 'large') ? '22px' : '9px')};
     font-size: 12px;
     font-weight: bold;
     white-space: nowrap;

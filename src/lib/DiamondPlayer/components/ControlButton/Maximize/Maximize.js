@@ -32,7 +32,7 @@ class Maximize extends Component {
     const tooltipTitle = (isMaximized) ? 'Exit Fullscreen' : 'Enter Fullscreen';
 
     return (
-      <TooltipButton title={tooltipTitle} align="right" spacing="large" onClick={this.handleClick}>
+      <TooltipButton title={tooltipTitle} align="right" separation="large" onClick={this.handleClick}>
         {(isMaximized) ? <MinimizeIcon /> : <MaximizeIcon />}
       </TooltipButton>
     );
