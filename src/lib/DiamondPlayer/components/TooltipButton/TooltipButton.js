@@ -21,11 +21,11 @@ class TooltipButton extends PureComponent {
   }
 
   render() {
-    const { title, align, separation, children, ...rest } = this.props;
+    const { children, onClick, ...rest } = this.props;
 
     return (
-      <Tooltip title={title} align={align} separation={separation}>
-        <Button {...rest} onClick={this.handleClick}>
+      <Tooltip {...rest}>
+        <Button onClick={this.handleClick}>
           {children}
         </Button>
       </Tooltip>
