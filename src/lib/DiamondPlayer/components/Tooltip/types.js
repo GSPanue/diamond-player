@@ -11,12 +11,19 @@ const propTypes = {
     'normal',
     'large'
   ]),
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  innerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.instanceOf(Element)
+    })
+  ])
 };
 
 const defaultProps = {
   align: 'center',
-  separation: 'normal'
+  separation: 'normal',
+  innerRef: undefined
 };
 
 export {
