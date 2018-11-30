@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Slider from '../Slider';
+import { Wrapper } from './styles';
+import TooltipSlider from '../TooltipSlider';
 
 const ProgressBar = () => (
-  <Slider
-    value="0"
-    onChange={() => {}}
-  />
+  <Wrapper>
+    <TooltipSlider />
+  </Wrapper>
 );
 
 export default ProgressBar;
