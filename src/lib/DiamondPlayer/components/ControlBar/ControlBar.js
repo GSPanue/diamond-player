@@ -3,6 +3,7 @@ import React from 'react';
 import { Wrapper, Section, Group } from './styles';
 import { Play, Mute, Settings, Maximize } from '../ControlButton';
 import Volume from '../Volume';
+import Time from '../Time';
 
 const ControlBar = () => (
   <Wrapper>
@@ -12,6 +13,7 @@ const ControlBar = () => (
         <Mute />
         <Volume />
       </Group>
+      <Time />
     </Section>
     <Section align="right">
       <Settings />

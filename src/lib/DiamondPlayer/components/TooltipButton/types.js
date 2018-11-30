@@ -7,12 +7,17 @@ const propTypes = {
     'center',
     'right'
   ]),
+  separation: PropTypes.oneOf([
+    'normal',
+    'large'
+  ]),
   children: PropTypes.element.isRequired,
   onClick: PropTypes.func.isRequired
 };
 
 const defaultProps = {
-  align: 'center'
+  align: 'center',
+  separation: 'normal'
 };
 
 export {

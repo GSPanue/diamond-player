@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  max-width: 56px;
+  width: 100%;
+  height: 100%;
   position: relative;
   display: flex;
 `;
@@ -9,7 +10,7 @@ const Wrapper = styled.div`
 const Input = styled.input`
   appearance: none;
   width: 100%;
-  height: 3px;
+  height: 100%;
   padding: 0;
   margin: 0;
   outline: none;
@@ -19,8 +20,8 @@ const Input = styled.input`
   
   &::-webkit-slider-thumb {
     appearance: none;
-    width: 13px;
-    height: 13px;
+    width: 11px;
+    height: 11px;
     border: 0;
     border-radius: 100%;
     box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 0 0 1px rgba(47,52,61,.2);
@@ -29,8 +30,8 @@ const Input = styled.input`
 `;
 
 const Trail = styled.div`
-  width: ${({ trail }) => trail * 98}%;
-  height: 3px;
+  width: ${({ trail }) => trail * 100}%;
+  height: 100%;
   position: absolute;
   background: #FFFFFF;
 `;

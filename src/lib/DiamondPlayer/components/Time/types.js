@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  children: PropTypes.element.isRequired
+  currentTime: PropTypes.string.isRequired,
+  duration: PropTypes.string.isRequired
 };
 
 export {

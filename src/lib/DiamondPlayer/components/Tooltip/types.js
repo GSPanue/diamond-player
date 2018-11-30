@@ -7,11 +7,23 @@ const propTypes = {
     'center',
     'right'
   ]),
-  children: PropTypes.element.isRequired
+  separation: PropTypes.oneOf([
+    'normal',
+    'large'
+  ]),
+  children: PropTypes.element.isRequired,
+  innerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.instanceOf(Element)
+    })
+  ])
 };
 
 const defaultProps = {
-  align: 'center'
+  align: 'center',
+  separation: 'normal',
+  innerRef: undefined
 };
 
 export {

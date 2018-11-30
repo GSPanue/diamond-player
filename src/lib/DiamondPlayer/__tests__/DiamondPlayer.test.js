@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import DiamondPlayer from '../DiamondPlayer';
-import { Wrapper } from '../styles';
+import { Wrapper, InnerWrapper } from '../styles';
 
 describe('Component: DiamondPlayer', () => {
   const minProps = {
@@ -35,6 +35,18 @@ describe('Component: DiamondPlayer', () => {
     const wrapper = shallow(<DiamondPlayer />);
 
     expect(wrapper.find('Video')).toHaveLength(1);
+  });
+
+  it('should render a InnerWrapper component', () => {
+    const wrapper = shallow(<DiamondPlayer />);
+
+    expect(wrapper.find(InnerWrapper)).toHaveLength(1);
+  });
+
+  it('should render a ProgressBar component', () => {
+    const wrapper = shallow(<DiamondPlayer />);
+
+    expect(wrapper.find('ProgressBar')).toHaveLength(1);
   });
 
   it('should render a ControlBar component', () => {

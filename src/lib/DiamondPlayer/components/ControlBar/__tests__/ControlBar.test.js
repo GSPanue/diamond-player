@@ -47,6 +47,12 @@ describe('Component: ControlBar', () => {
     expect(wrapper.find('Connect(Volume)')).toHaveLength(1);
   });
 
+  it('should render a Time component', () => {
+    const wrapper = shallow(<ControlBar />);
+
+    expect(wrapper.find('Connect(Time)')).toHaveLength(1);
+  });
+
   it('should render a Settings component', () => {
     const wrapper = shallow(<ControlBar />);
 
