@@ -15,7 +15,7 @@ class Volume extends Component {
     const { value: currentValue, isMuted: currentIsMuted } = this.props;
     const { value: nextValue, isMuted: nextIsMuted } = nextProps;
 
-    return ((currentValue !== nextValue) || (currentIsMuted !== nextIsMuted));
+    return (currentValue !== nextValue) || (currentIsMuted !== nextIsMuted);
   }
 
   /**
