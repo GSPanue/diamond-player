@@ -48,7 +48,7 @@ describe('Component: Slider', () => {
     const wrapper = shallow(<Slider {...minProps} />);
 
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find(Input).simulate('change', event);
+    wrapper.find(Input).props().onChange(event);
     expect(spy).toHaveBeenCalledTimes(1);
   });
 

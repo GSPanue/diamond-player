@@ -55,7 +55,7 @@ describe('Component: Volume', () => {
     const wrapper = shallow(<Volume {...minProps} />);
 
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('Slider').simulate('change');
+    wrapper.find('Slider').props().onChange();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
