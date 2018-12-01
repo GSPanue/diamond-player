@@ -54,6 +54,15 @@ describe('Component: TooltipSlider', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
+  it('should call handleChange on a change event', () => {
+    const spy = jest.spyOn(TooltipSlider.prototype, 'handleChange');
+    const wrapper = mount(<TooltipSlider />);
+
+    expect(spy).toHaveBeenCalledTimes(0);
+    wrapper.find('Slider').props().onChange();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
   describe('Method: componentDidMount', () => {
     it('should call updateHorizontalBoundaries', () => {
       const spy = jest.spyOn(TooltipSlider.prototype, 'updateHorizontalBoundaries');
@@ -170,6 +179,15 @@ describe('Component: TooltipSlider', () => {
       const nextBoundary = wrapper.state().boundary;
 
       expect(currentBoundary).not.toEqual(nextBoundary);
+    });
+  });
+
+  describe('Method: handleChange', () => {
+    /**
+     * ToDo: Complete tests
+     */
+    it('should call adjustCurrentTime', () => {
+
     });
   });
 });
