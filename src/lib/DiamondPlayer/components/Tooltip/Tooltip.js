@@ -29,17 +29,17 @@ class Tooltip extends PureComponent {
    * shouldShowTooltip: Returns whether the tooltip should be shown or not.
    */
   shouldShowTooltip() {
-    const { show: showProps } = this.props;
+    const { show: showProp } = this.props;
 
     // Return showState for an uncontrolled tooltip
-    if (showProps === undefined) {
+    if (showProp === undefined) {
       const { show: showState } = this.state;
 
       return showState;
     }
 
-    // Return showProps for a controlled tooltip
-    return showProps;
+    // Return showProp for a controlled tooltip
+    return showProp;
   }
 
   /**
