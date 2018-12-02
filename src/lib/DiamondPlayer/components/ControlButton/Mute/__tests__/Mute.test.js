@@ -74,7 +74,7 @@ describe('Component: Mute', () => {
         isMuted: false
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
     });
 
     it('should return true when isMuted has changed', () => {
@@ -85,7 +85,7 @@ describe('Component: Mute', () => {
         isMuted: true
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
     });
   });
 

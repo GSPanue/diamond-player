@@ -9,6 +9,7 @@ class TooltipSlider extends Component {
 
     this.updateHorizontalBoundaries = this.updateHorizontalBoundaries.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.wrapper = React.createRef();
     this.tooltip = React.createRef();
@@ -88,13 +89,22 @@ class TooltipSlider extends Component {
     this.setState({ position });
   }
 
+  /**
+   * handleChange: Handles a change event.
+   */
+  handleChange() {
+    /**
+     * ToDo: Set current time
+     */
+  }
+
   render() {
     const { position } = this.state;
 
     return (
       <Wrapper onMouseMove={this.handleMouseMove} ref={this.wrapper}>
         <StyledTooltip title="0:00" position={position} innerRef={this.tooltip}>
-          <Slider value="0.5" onChange={() => {}} />
+          <Slider value="0.5" onChange={this.handleChange} />
         </StyledTooltip>
       </Wrapper>
     );

@@ -74,7 +74,7 @@ describe('Component: Maximize', () => {
         isMaximized: false
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
     });
 
     it('should return true when isMaximized has changed', () => {
@@ -85,7 +85,7 @@ describe('Component: Maximize', () => {
         isMaximized: true
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
     });
   });
 

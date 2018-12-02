@@ -48,7 +48,7 @@ describe('Component: Slider', () => {
     const wrapper = shallow(<Slider {...minProps} />);
 
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find(Input).simulate('change', event);
+    wrapper.find(Input).props().onChange(event);
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -61,7 +61,7 @@ describe('Component: Slider', () => {
         value: '0'
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
     });
 
     it('should return true when value has changed', () => {
@@ -72,7 +72,7 @@ describe('Component: Slider', () => {
         value: '1'
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
     });
   });
 

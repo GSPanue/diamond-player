@@ -74,7 +74,7 @@ describe('Component: Play', () => {
         isPlaying: false
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
     });
 
     it('should return true when isPlaying has changed', () => {
@@ -85,7 +85,7 @@ describe('Component: Play', () => {
         isPlaying: true
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
     });
   });
 
