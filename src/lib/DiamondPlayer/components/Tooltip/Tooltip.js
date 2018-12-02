@@ -10,13 +10,18 @@ class Tooltip extends PureComponent {
     this.shouldShowTooltip = this.shouldShowTooltip.bind(this);
 
     // Bind event handlers and use state for an uncontrolled tooltip
-    this.handleMouseEnter = (props.show === undefined) ? this.handleMouseEnter.bind(this) : undefined;
-    this.handleMouseLeave = (props.show === undefined) ? this.handleMouseLeave.bind(this) : undefined;
-
     if (props.show === undefined) {
+      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleMouseLeave = this.handleMouseLeave.bind(this);
+
       this.state = {
         show: false
       };
+    }
+    // Make event handlers undefined for a controlled tooltip
+    else {
+      this.handleMouseEnter = undefined;
+      this.handleMouseLeave = undefined;
     }
   }
 
