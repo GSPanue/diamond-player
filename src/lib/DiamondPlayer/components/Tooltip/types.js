@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
+  show: PropTypes.bool,
   align: PropTypes.oneOf([
     'left',
     'center',
@@ -21,6 +22,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  show: undefined,
   align: 'center',
   separation: 'normal',
   innerRef: undefined
