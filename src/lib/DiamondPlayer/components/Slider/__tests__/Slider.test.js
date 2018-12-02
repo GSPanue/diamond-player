@@ -61,7 +61,7 @@ describe('Component: Slider', () => {
         value: '0'
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
     });
 
     it('should return true when value has changed', () => {
@@ -72,7 +72,7 @@ describe('Component: Slider', () => {
         value: '1'
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
     });
   });
 

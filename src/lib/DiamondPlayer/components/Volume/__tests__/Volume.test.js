@@ -69,7 +69,7 @@ describe('Component: Volume', () => {
         isMuted: false
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
     });
 
     it('should return true when value has changed', () => {
@@ -81,7 +81,7 @@ describe('Component: Volume', () => {
         isMuted: false
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
     });
 
     it('should return false when isMuted has not changed', () => {
@@ -93,7 +93,7 @@ describe('Component: Volume', () => {
         isMuted: false
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(false);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
     });
 
     it('should return true when isMuted has changed', () => {
@@ -105,7 +105,7 @@ describe('Component: Volume', () => {
         isMuted: true
       };
 
-      expect(instance.shouldComponentUpdate(nextProps)).toEqual(true);
+      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
     });
   });
 
