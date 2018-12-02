@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   value: PropTypes.string,
-  step: PropTypes.string,
+  showThumb: PropTypes.bool,
   onChange: PropTypes.func.isRequired
 };
 
 const defaultProps = {
   value: '0',
-  step: '0.01'
+  showThumb: true
 };
 
 export {

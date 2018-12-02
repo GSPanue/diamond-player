@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { propTypes, defaultProps } from './types';
 import { Wrapper, Input, Trail } from './styles';
 
-class Slider extends Component {
+class Slider extends PureComponent {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps) {
-    const { value: currentValue } = this.props;
-    const { value: nextValue } = nextProps;
-
-    return (currentValue !== nextValue);
   }
 
   /**
@@ -28,7 +21,7 @@ class Slider extends Component {
   }
 
   render() {
-    const { value, step } = this.props;
+    const { value, ...rest } = this.props;
 
     return (
       <Wrapper>
@@ -36,8 +29,9 @@ class Slider extends Component {
           type="range"
           min="0"
           max="1"
-          step={step}
+          step="0.01"
           value={value}
+          {...rest}
           onChange={this.handleChange}
         />
         <Trail trail={value} />

@@ -26,6 +26,8 @@ const Input = styled.input`
     border-radius: 100%;
     box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 0 0 1px rgba(47,52,61,.2);
     background: #FFFFFF;
+    opacity: ${({ showThumb }) => +showThumb};
+    transition: opacity 0.2s 0.1s ease;
   }
 `;
 

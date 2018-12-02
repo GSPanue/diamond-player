@@ -33,12 +33,12 @@ describe('Component: Slider', () => {
     expect(wrapper.find(Trail)).toHaveLength(1);
   });
 
-  it('should have props for value and onChange', () => {
+  it('should have props for value, showThumb, and onChange', () => {
     const wrapper = shallow(<Slider {...minProps} />);
     const instance = wrapper.instance();
 
     expect(instance.props.value).toBeDefined();
-    expect(instance.props.step).toBeDefined();
+    expect(instance.props.showThumb).toBeDefined();
     expect(instance.props.onChange).toBeDefined();
   });
 
@@ -50,30 +50,6 @@ describe('Component: Slider', () => {
     expect(spy).toHaveBeenCalledTimes(0);
     wrapper.find(Input).props().onChange(event);
     expect(spy).toHaveBeenCalledTimes(1);
-  });
-
-  describe('Method: shouldComponentUpdate', () => {
-    it('should return false when value has not changed', () => {
-      const wrapper = shallow(<Slider {...minProps} />);
-      const instance = wrapper.instance();
-
-      const nextProps = {
-        value: '0'
-      };
-
-      expect(instance.shouldComponentUpdate(nextProps)).toBeFalse();
-    });
-
-    it('should return true when value has changed', () => {
-      const wrapper = shallow(<Slider {...minProps} />);
-      const instance = wrapper.instance();
-
-      const nextProps = {
-        value: '1'
-      };
-
-      expect(instance.shouldComponentUpdate(nextProps)).toBeTrue();
-    });
   });
 
   describe('Method: handleChange', () => {
