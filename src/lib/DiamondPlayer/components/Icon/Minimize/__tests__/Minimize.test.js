@@ -4,6 +4,10 @@ import { shallow, mount } from 'enzyme';
 import Minimize from '..';
 
 describe('Component: Minimize', () => {
+  const minProps = {
+    className: ''
+  };
+
   it('should render without crashing', () => {
     const wrapper = shallow(<Minimize />);
 
@@ -23,9 +27,10 @@ describe('Component: Minimize', () => {
   });
 
   it('should have props for color and size', () => {
-    const wrapper = mount(<Minimize />);
+    const wrapper = mount(<Minimize {...minProps} />);
 
     expect(wrapper.props().color).toBeDefined();
     expect(wrapper.props().size).toBeDefined();
+    expect(wrapper.props().className).toBeDefined();
   });
 });

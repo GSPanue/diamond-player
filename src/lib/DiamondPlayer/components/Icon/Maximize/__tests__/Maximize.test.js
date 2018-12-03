@@ -4,6 +4,10 @@ import { shallow, mount } from 'enzyme';
 import Maximize from '..';
 
 describe('Component: Maximize', () => {
+  const minProps = {
+    className: ''
+  };
+
   it('should render without crashing', () => {
     const wrapper = shallow(<Maximize />);
 
@@ -23,9 +27,10 @@ describe('Component: Maximize', () => {
   });
 
   it('should have props for color and size', () => {
-    const wrapper = mount(<Maximize />);
+    const wrapper = mount(<Maximize {...minProps} />);
 
     expect(wrapper.props().color).toBeDefined();
     expect(wrapper.props().size).toBeDefined();
+    expect(wrapper.props().className).toBeDefined();
   });
 });

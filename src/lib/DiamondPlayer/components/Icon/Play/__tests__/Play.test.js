@@ -4,6 +4,10 @@ import { shallow, mount } from 'enzyme';
 import Play from '..';
 
 describe('Component: Play', () => {
+  const minProps = {
+    className: ''
+  };
+
   it('should render without crashing', () => {
     const wrapper = shallow(<Play />);
 
@@ -23,9 +27,10 @@ describe('Component: Play', () => {
   });
 
   it('should have props for color and size', () => {
-    const wrapper = mount(<Play />);
+    const wrapper = mount(<Play {...minProps} />);
 
     expect(wrapper.props().color).toBeDefined();
     expect(wrapper.props().size).toBeDefined();
+    expect(wrapper.props().className).toBeDefined();
   });
 });

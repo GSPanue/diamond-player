@@ -4,6 +4,10 @@ import { shallow, mount } from 'enzyme';
 import VolumeX from '..';
 
 describe('Component: VolumeX', () => {
+  const minProps = {
+    className: ''
+  };
+
   it('should render without crashing', () => {
     const wrapper = shallow(<VolumeX />);
 
@@ -29,9 +33,10 @@ describe('Component: VolumeX', () => {
   });
 
   it('should have props for color and size', () => {
-    const wrapper = mount(<VolumeX />);
+    const wrapper = mount(<VolumeX {...minProps} />);
 
     expect(wrapper.props().color).toBeDefined();
     expect(wrapper.props().size).toBeDefined();
+    expect(wrapper.props().className).toBeDefined();
   });
 });

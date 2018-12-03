@@ -8,6 +8,7 @@ describe('Component: Tooltip', () => {
   const minProps = {
     title: 'title',
     children: <div />,
+    className: '',
     innerRef: () => {}
   };
 
@@ -35,7 +36,7 @@ describe('Component: Tooltip', () => {
     expect(wrapper.find('div')).toHaveLength(1);
   });
 
-  it('should have props for title, show, align, separation, children, and innerRef', () => {
+  it('should have props for title, show, align, separation, children, className, and innerRef', () => {
     const wrapper = shallow(<Tooltip {...minProps} show />);
     const instance = wrapper.instance();
 
@@ -44,6 +45,7 @@ describe('Component: Tooltip', () => {
     expect(instance.props.align).toBeDefined();
     expect(instance.props.separation).toBeDefined();
     expect(instance.props.children).toBeDefined();
+    expect(instance.props.className).toBeDefined();
     expect(instance.props.innerRef).toBeDefined();
   });
 

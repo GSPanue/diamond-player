@@ -13,6 +13,7 @@ const propTypes = {
     'large'
   ]),
   children: PropTypes.element.isRequired,
+  className: PropTypes.string,
   innerRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
@@ -25,6 +26,7 @@ const defaultProps = {
   show: undefined,
   align: 'center',
   separation: 'normal',
+  className: undefined,
   innerRef: undefined
 };
 
