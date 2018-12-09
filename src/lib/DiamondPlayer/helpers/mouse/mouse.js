@@ -10,7 +10,7 @@ const getMousePosition = (parent, boundary, pageX) => {
   const hasReachedLeftBoundary = (position <= boundary.left);
   const hasReachedRightBoundary = (position >= boundary.right);
 
-  // Assign boundary if mouse position has reached a boundary
+  // Assign left or right boundary if mouse position has reached a boundary
   if (hasReachedLeftBoundary || hasReachedRightBoundary) {
     position = (hasReachedLeftBoundary) ? boundary.left : boundary.right;
   }
