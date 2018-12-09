@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 2px;
 `;
 
 const Section = styled.div`
