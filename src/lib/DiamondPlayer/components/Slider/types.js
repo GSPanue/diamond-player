@@ -6,6 +6,8 @@ const propTypes = {
   innerWrapperHeight: PropTypes.string,
   barHeight: PropTypes.string,
   className: PropTypes.string,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
   onChange: PropTypes.func.isRequired
 };
 
@@ -14,7 +16,9 @@ const defaultProps = {
   showThumb: true,
   innerWrapperHeight: undefined,
   barHeight: undefined,
-  className: undefined
+  className: undefined,
+  onMouseEnter: undefined,
+  onMouseLeave: undefined
 };
 
 export {

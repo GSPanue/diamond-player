@@ -6,8 +6,8 @@ import { propTypes, defaultProps } from './types';
 import { Wrapper, InnerWrapper, Bar, Trail, Thumb } from './styles';
 
 class Slider extends PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.wrapper = React.createRef();
     this.thumb = React.createRef();
@@ -16,6 +16,16 @@ class Slider extends PureComponent {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
+
+    // Bind handleMouseEnter and handleMouseLeave when both callbacks are defined
+    if ((props.onMouseEnter !== undefined) && (props.onMouseLeave !== undefined)) {
+      this.handleMouseEnter = this.handleMouseEnter.bind(this);
+      this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    }
+    else {
+      this.handleMouseEnter = undefined;
+      this.handleMouseLeave = undefined;
+    }
 
     this.state = {
       mouseDown: false,
@@ -83,6 +93,24 @@ class Slider extends PureComponent {
   }
 
   /**
+   * handleMouseEnter: Handles a mouseenter event.
+   */
+  handleMouseEnter() {
+    const { onMouseEnter: callback } = this.props;
+
+    callback();
+  }
+
+  /**
+   * handleMouseLeave: Handles a mouseleave event.
+   */
+  handleMouseLeave() {
+    const { onMouseLeave: callback } = this.props;
+
+    callback();
+  }
+
+  /**
    * handleChange: Handles a value change.
    */
   handleChange(pageX) {
@@ -122,6 +150,8 @@ class Slider extends PureComponent {
     return (
       <Wrapper
         {...rest}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
         ref={this.wrapper}

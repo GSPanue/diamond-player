@@ -19,6 +19,8 @@ describe('Component: Slider', () => {
     innerWrapperHeight: '',
     barHeight: '',
     className: '',
+    onMouseEnter: () => {},
+    onMouseLeave: () => {},
     onChange: () => {}
   };
 
@@ -66,12 +68,48 @@ describe('Component: Slider', () => {
     expect(wrapper.props().innerWrapperHeight).toBeDefined();
   });
 
-  it('should have props for barHeight, className, and onChange', () => {
+  it('should have props for barHeight, className, onMouseEnter, onMouseLeave, and onChange', () => {
     const wrapper = mount(<Slider {...minProps} />);
 
     expect(wrapper.props().barHeight).toBeDefined();
     expect(wrapper.props().className).toBeDefined();
+    expect(wrapper.props().onMouseEnter).toBeDefined();
+    expect(wrapper.props().onMouseLeave).toBeDefined();
     expect(wrapper.props().onChange).toBeDefined();
+  });
+
+  it('should bind handleMouseEnter and handleMouseLeave when onMouseEnter and onMouseLeave are defined', () => {
+    const wrapper = mount(<Slider {...minProps} />);
+    const instance = wrapper.instance();
+
+    expect(instance.handleMouseEnter).toBeFunction();
+    expect(instance.handleMouseLeave).toBeFunction();
+  });
+
+  it('should not bind handleMouseEnter and handleMouseLeave when onMouseEnter and onMouseLeave are not defined', () => {
+    const wrapper = mount(<Slider {...minProps} onMouseEnter={undefined} onMouseLeave={undefined} />);
+    const instance = wrapper.instance();
+
+    expect(instance.handleMouseEnter).toBeUndefined();
+    expect(instance.handleMouseLeave).toBeUndefined();
+  });
+
+  it('should call handleMouseEnter on a mouseenter event', () => {
+    const spy = jest.spyOn(Slider.prototype, 'handleMouseEnter');
+    const wrapper = mount(<Slider {...minProps} />);
+
+    expect(spy).toHaveBeenCalledTimes(0);
+    wrapper.find(Wrapper).props().onMouseEnter();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call handleMouseLeave on a mouseleave event', () => {
+    const spy = jest.spyOn(Slider.prototype, 'handleMouseLeave');
+    const wrapper = mount(<Slider {...minProps} />);
+
+    expect(spy).toHaveBeenCalledTimes(0);
+    wrapper.find(Wrapper).props().onMouseLeave();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('should call handleMouseDown on a mousedown event', () => {
@@ -340,6 +378,30 @@ describe('Component: Slider', () => {
       expect(spy).toHaveBeenCalledTimes(0);
       instance.handleMouseMove(event);
       expect(spy).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('Method: handleMouseEnter', () => {
+    it('should call onMouseEnter', () => {
+      const onMouseEnter = jest.fn();
+      const wrapper = mount(<Slider {...minProps} onMouseEnter={onMouseEnter} />);
+      const instance = wrapper.instance();
+
+      expect(onMouseEnter).toHaveBeenCalledTimes(0);
+      instance.handleMouseEnter();
+      expect(onMouseEnter).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Method: handleMouseLeave', () => {
+    it('should call onMouseLeave', () => {
+      const onMouseLeave = jest.fn();
+      const wrapper = mount(<Slider {...minProps} onMouseLeave={onMouseLeave} />);
+      const instance = wrapper.instance();
+
+      expect(onMouseLeave).toHaveBeenCalledTimes(0);
+      instance.handleMouseLeave();
+      expect(onMouseLeave).toHaveBeenCalledTimes(1);
     });
   });
 
