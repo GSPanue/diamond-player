@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import { propTypes } from './types';
-import { Wrapper } from './styles';
-import Slider from '../Slider';
+import { Wrapper, StyledSlider } from './styles';
 
 class Volume extends Component {
   constructor() {
@@ -32,8 +31,8 @@ class Volume extends Component {
 
     return (
       <Wrapper>
-        <Slider
-          value={(isMuted) ? '0' : value}
+        <StyledSlider
+          value={(isMuted) ? 0 : value}
           onChange={this.handleChange}
         />
       </Wrapper>
