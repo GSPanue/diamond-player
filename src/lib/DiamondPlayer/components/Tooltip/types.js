@@ -9,8 +9,6 @@ const propTypes = {
     'right'
   ]),
   separation: PropTypes.oneOf([
-    'small',
-    'normal',
     'large'
   ]),
   children: PropTypes.element.isRequired,
@@ -26,7 +24,7 @@ const propTypes = {
 const defaultProps = {
   show: undefined,
   align: 'center',
-  separation: 'normal',
+  separation: undefined,
   className: undefined,
   innerRef: undefined
 };

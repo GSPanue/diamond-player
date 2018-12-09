@@ -14,7 +14,7 @@ const Label = styled.div`
   ${({ align }) => (align === 'right') && 'right: 0'};
   bottom: 100%;
   padding: 5px 7.5px;
-  margin-bottom: ${({ separation }) => ((separation === 'large') && '25') || ((separation === 'small') ? '3' : '13')}px;
+  ${({ separation }) => (separation === 'large') && 'margin-bottom: 25px;'}
   font-size: 12px;
   font-weight: bold;
   white-space: nowrap;

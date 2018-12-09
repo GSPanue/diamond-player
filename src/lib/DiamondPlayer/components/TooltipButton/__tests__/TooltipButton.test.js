@@ -6,6 +6,7 @@ import TooltipButton from '..';
 describe('Component: TooltipButton', () => {
   const minProps = {
     title: 'title',
+    separation: 'large',
     children: <div />,
     onClick: () => {}
   };

@@ -8,8 +8,6 @@ const propTypes = {
     'right'
   ]),
   separation: PropTypes.oneOf([
-    'small',
-    'normal',
     'large'
   ]),
   children: PropTypes.element.isRequired,
@@ -18,7 +16,7 @@ const propTypes = {
 
 const defaultProps = {
   align: 'center',
-  separation: 'normal'
+  separation: undefined
 };
 
 export {

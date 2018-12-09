@@ -7,6 +7,7 @@ import { Wrapper, Label } from '../styles';
 describe('Component: Tooltip', () => {
   const minProps = {
     title: 'title',
+    separation: 'large',
     children: <div />,
     className: '',
     innerRef: () => {}
