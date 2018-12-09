@@ -18,7 +18,7 @@ describe('Reducer: Video', () => {
       playing: false,
       muted: false,
       maximized: false,
-      volume: '0.5',
+      volume: 0.50,
       currentTime: '0:00',
       duration: '0:00'
     };
@@ -115,17 +115,17 @@ describe('Reducer: Video', () => {
   it('should handle ADJUST_VOLUME', () => {
     const initialState = {
       muted: false,
-      volume: '0.5'
+      volume: 0.50
     };
 
     const expectedState = {
       muted: true,
-      volume: '0'
+      volume: 0
     };
 
     const actualState = reducer(initialState, {
       type: ADJUST_VOLUME,
-      payload: '0'
+      payload: 0
     });
 
     expect(expectedState).toEqual(actualState);

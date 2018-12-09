@@ -14,7 +14,7 @@ const initialState = {
   playing: false,
   muted: false,
   maximized: false,
-  volume: '0.5',
+  volume: 0.50,
   currentTime: '0:00',
   duration: '0:00'
 };
@@ -61,7 +61,7 @@ const video = (state = initialState, action) => {
       return {
         ...state,
         volume: action.payload,
-        muted: !(+action.payload)
+        muted: !(action.payload)
       };
 
     case ADJUST_CURRENT_TIME:
