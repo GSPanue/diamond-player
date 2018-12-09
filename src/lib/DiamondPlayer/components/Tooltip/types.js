@@ -9,6 +9,7 @@ const propTypes = {
     'right'
   ]),
   separation: PropTypes.oneOf([
+    'small',
     'normal',
     'large'
   ]),
