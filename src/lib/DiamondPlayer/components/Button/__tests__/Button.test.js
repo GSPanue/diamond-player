@@ -35,7 +35,7 @@ describe('Component: Button', () => {
     expect(wrapper.props().onClick).toBeDefined();
   });
 
-  it('should call handleClick on a click event', () => {
+  it('should call onClick on a click event', () => {
     const onClick = jest.fn();
     const wrapper = shallow(<Button {...minProps} onClick={onClick} />);
 
