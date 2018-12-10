@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import TooltipButton from '..';
 
@@ -35,11 +35,12 @@ describe('Component: TooltipButton', () => {
     expect(wrapper.find('div')).toHaveLength(1);
   });
 
-  it('should pass title and align to the Tooltip component', () => {
+  it('should pass title, align, and separation to the Tooltip component', () => {
     const wrapper = shallow(<TooltipButton {...minProps} />);
 
     expect(wrapper.find('Tooltip').props().title).toBeDefined();
     expect(wrapper.find('Tooltip').props().align).toBeDefined();
+    expect(wrapper.find('Tooltip').props().separation).toBeDefined();
   });
 
   it('should pass onClick to the Button component', () => {
@@ -49,34 +50,21 @@ describe('Component: TooltipButton', () => {
   });
 
   it('should have props for title, align, children, and onClick', () => {
-    const wrapper = shallow(<TooltipButton {...minProps} />);
-    const instance = wrapper.instance();
+    const wrapper = mount(<TooltipButton {...minProps} />);
 
-    expect(instance.props.title).toBeDefined();
-    expect(instance.props.align).toBeDefined();
-    expect(instance.props.separation).toBeDefined();
-    expect(instance.props.children).toBeDefined();
-    expect(instance.props.onClick).toBeDefined();
+    expect(wrapper.props().title).toBeDefined();
+    expect(wrapper.props().align).toBeDefined();
+    expect(wrapper.props().separation).toBeDefined();
+    expect(wrapper.props().children).toBeDefined();
+    expect(wrapper.props().onClick).toBeDefined();
   });
 
-  it('should call handleClick on a click event', () => {
-    const spy = jest.spyOn(TooltipButton.prototype, 'handleClick');
-    const wrapper = shallow(<TooltipButton {...minProps} />);
+  it('should call onClick on a click event', () => {
+    const onClick = jest.fn();
+    const wrapper = shallow(<TooltipButton {...minProps} onClick={onClick} />);
 
-    expect(spy).toHaveBeenCalledTimes(0);
+    expect(onClick).toHaveBeenCalledTimes(0);
     wrapper.find('Button').props().onClick();
-    expect(spy).toHaveBeenCalledTimes(1);
-  });
-
-  describe('Method: handleClick', () => {
-    it('should call onClick', () => {
-      const onClick = jest.fn();
-      const wrapper = shallow(<TooltipButton {...minProps} onClick={onClick} />);
-      const instance = wrapper.instance();
-
-      expect(onClick).toHaveBeenCalledTimes(0);
-      instance.handleClick();
-      expect(onClick).toHaveBeenCalledTimes(1);
-    });
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
