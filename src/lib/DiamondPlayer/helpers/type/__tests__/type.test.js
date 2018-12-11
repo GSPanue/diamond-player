@@ -1,4 +1,4 @@
-import { isUndefined, isFunction } from '..';
+import { isUndefined, isDefined, isFunction } from '..';
 
 describe('Helper: Type', () => {
   describe('Function: isUndefined', () => {
@@ -13,6 +13,19 @@ describe('Helper: Type', () => {
       expect(isUndefined('')).toBeFalse();
       expect(isUndefined({})).toBeFalse();
       expect(isUndefined(() => {})).toBeFalse();
+    });
+  });
+
+  describe('Function: isDefined', () => {
+    it('should return true when passed a value', () => {
+      expect(isDefined(0)).toBeTrue();
+      expect(isDefined('')).toBeTrue();
+      expect(isDefined({})).toBeTrue();
+      expect(isDefined(() => {})).toBeTrue();
+    });
+
+    it('should return false when passed undefined', () => {
+      expect(isDefined(undefined)).toBeFalse();
     });
   });
 
