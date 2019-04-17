@@ -23,7 +23,7 @@
     "html5",
     "react"
   ],
-  "main": "lib/index.js",
+  "main": "lib/index.min.js",
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.demo.config.babel.js",
     "build": "run-p build:*",
