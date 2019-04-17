@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 const propTypes = {
   title: PropTypes.string.isRequired,
   show: PropTypes.bool,
+  shouldMoveHorizontally: PropTypes.bool,
   align: PropTypes.oneOf([
     'left',
     'center',
@@ -13,20 +14,18 @@ const propTypes = {
   ]),
   children: PropTypes.element.isRequired,
   className: PropTypes.string,
-  innerRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.instanceOf(Element)
-    })
-  ])
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func
 };
 
 const defaultProps = {
   show: undefined,
+  shouldMoveHorizontally: false,
   align: 'center',
   separation: undefined,
   className: undefined,
-  innerRef: undefined
+  onMouseEnter: undefined,
+  onMouseLeave: undefined
 };
 
 export {
