@@ -17,19 +17,24 @@ A customisable HTML5 video player component for [React](https://reactjs.org)
 1. Initialise the local server: ``npm run start``
 2. Go to: http://localhost:8080
 
+## Production
+
+1. Generate the demo bundle and library bundle: ``npm run build``
+
 ## Commands
 
-- Generate the demo bundle: ``npm run build:demo``
 - Generate the library bundle: ``npm run build:lib``
-- Open the demo bundle analyser: ``npm run report``
+- Generate the demo bundle: ``npm run build:demo``
+- Analyze the library bundle: ``npm run analyze:lib``
+- Analyze the demo bundle: ``npm run analyze:demo``
 - Run all unit tests: ``npm run test``
 - Run tests related to changed files: ``npm run test:watch``
-- Create code coverage reports: `npm run test:coverage`
-- Send code coverage reports to Coveralls: `npm run test:report`
+- Create code coverage report: ``npm run test:coverage``
+- Send code coverage report to Coveralls: ``npm run test:report``
 
 ## Version
 
-0.0.0
+1.0.0
 
 ## Author
 
