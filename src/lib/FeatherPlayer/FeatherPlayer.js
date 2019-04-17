@@ -9,7 +9,7 @@ import Video from './components/Video';
 import ControlBar from './components/ControlBar';
 import ProgressBar from './components/ProgressBar';
 
-const DiamondPlayer = ({ style, ...rest }) => (
+const FeatherPlayer = ({ style, ...rest }) => (
   <Provider store={store}>
     <Wrapper style={style}>
       <Video {...rest} />
@@ -21,7 +21,7 @@ const DiamondPlayer = ({ style, ...rest }) => (
   </Provider>
 );
 
-DiamondPlayer.propTypes = propTypes;
-DiamondPlayer.defaultProps = defaultProps;
+FeatherPlayer.propTypes = propTypes;
+FeatherPlayer.defaultProps = defaultProps;
 
-export default DiamondPlayer;
+export default FeatherPlayer;

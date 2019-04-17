@@ -17,9 +17,9 @@ describe('Component: App', () => {
     expect(wrapper.find(Wrapper)).toHaveLength(1);
   });
 
-  it('should render a DiamondPlayer component', () => {
+  it('should render a FeatherPlayer component', () => {
     const wrapper = shallow(<App />);
 
-    expect(wrapper.find('DiamondPlayer')).toHaveLength(1);
+    expect(wrapper.find('FeatherPlayer')).toHaveLength(1);
   });
 });

@@ -1,2 +1,2 @@
-export { default } from './DiamondPlayer';
+export { default } from './FeatherPlayer';
 export { Source } from './Source';

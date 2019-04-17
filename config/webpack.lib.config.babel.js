@@ -12,7 +12,7 @@ const libConfig = {
   output: {
     path: path.resolve(root, 'lib'),
     filename: 'index.min.js',
-    library: 'diamond-player',
+    library: 'feather-player',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

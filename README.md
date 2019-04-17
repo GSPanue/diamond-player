@@ -1,18 +1,18 @@
-<h1 align="center">Diamond Player</h1>
+<h1 align="center">Feather Player</h1>
 
 <div align="center">
 
 A customisable HTML5 video player component for [React](https://reactjs.org)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/GSPanue/diamond-player/blob/master/LICENSE.md)
-[![Build Status](https://travis-ci.com/GSPanue/diamond-player.svg?branch=develop)](https://travis-ci.com/GSPanue/diamond-player)
-[![Coverage Status](https://coveralls.io/repos/github/GSPanue/diamond-player/badge.svg?branch=develop)](https://coveralls.io/github/GSPanue/diamond-player?branch=develop)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/GSPanue/feather-player/blob/master/LICENSE.md)
+[![Build Status](https://travis-ci.com/GSPanue/feather-player.svg?branch=develop)](https://travis-ci.com/GSPanue/feather-player)
+[![Coverage Status](https://coveralls.io/repos/github/GSPanue/feather-player/badge.svg?branch=develop)](https://coveralls.io/github/GSPanue/feather-player?branch=develop)
 
 </div>
 
 ## Development
 
-1. Clone the repository: ``git clone https://github.com/GSPanue/diamond-player.git``
+1. Clone the repository: ``git clone https://github.com/GSPanue/feather-player.git``
 2. Install the dependencies: ``npm install``
 1. Initialise the local server: ``npm run start``
 2. Go to: http://localhost:8080
@@ -42,4 +42,4 @@ Gurdev S. Panue
 
 ## License
 
-Diamond Player is licensed under the [MIT License](https://github.com/GSPanue/diamond-player/blob/master/LICENSE.md).
+Feather Player is licensed under the [MIT License](https://github.com/GSPanue/feather-player/blob/master/LICENSE.md).

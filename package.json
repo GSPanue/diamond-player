@@ -1,21 +1,21 @@
 {
-  "name": "diamond-player",
+  "name": "feather-player",
   "description": "A customisable HTML5 video player component for React",
   "version": "0.0.0",
   "author": "Gurdev S. Panue",
   "license": "MIT",
-  "homepage": "https://github.com/GSPanue/diamond-player#readme",
+  "homepage": "https://github.com/GSPanue/feather-player#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GSPanue/diamond-player.git"
+    "url": "git+https://github.com/GSPanue/feather-player.git"
   },
   "bugs": {
-    "url": "https://github.com/GSPanue/diamond-player/issues"
+    "url": "https://github.com/GSPanue/feather-player/issues"
   },
   "keywords": [
-    "diamond",
+    "feather",
     "player",
-    "diamond-player",
+    "feather-player",
     "video",
     "hls",
     "live",

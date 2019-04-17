@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { Wrapper } from './styles';
-import DiamondPlayer from '..';
+import FeatherPlayer from '..';
 
 const App = () => (
   <Wrapper>
-    <DiamondPlayer src="" />
+    <FeatherPlayer src="" />
   </Wrapper>
 );
 
