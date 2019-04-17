@@ -4,7 +4,11 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const Label = styled.div`
+const Label = styled.div.attrs(({ position }) => ({
+  style: {
+    left: `${position}%`
+  }
+}))`
   position: absolute;
   display: block;
   pointer-events: none;
