@@ -8,13 +8,10 @@ const libConfig = {
   ...baseConfig,
   mode: 'production',
   devtool: '',
-  entry: {
-    index: path.join(root, 'src'),
-    'index.min': path.join(root, 'src')
-  },
+  entry: path.join(root, 'src'),
   output: {
     path: path.resolve(root, 'lib'),
-    filename: '[name].js',
+    filename: 'index.min.js',
     library: 'diamond-player',
     libraryTarget: 'umd',
     umdNamedDefine: true
