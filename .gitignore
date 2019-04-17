@@ -7,5 +7,5 @@ gen
 # Diamond Player
 /node_modules
 /lib
-/demo/js/*
+/demo/js
 /coverage
