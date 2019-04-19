@@ -1,7 +1,7 @@
 {
   "name": "feather-player",
   "description": "A customisable HTML5 video player component for React",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Gurdev S. Panue",
   "license": "MIT",
   "homepage": "https://github.com/GSPanue/feather-player#readme",
