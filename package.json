@@ -17,11 +17,9 @@
     "player",
     "feather-player",
     "video",
-    "hls",
-    "live",
-    "streaming",
     "html5",
-    "react"
+    "react",
+    "component"
   ],
   "main": "lib/index.min.js",
   "scripts": {
